@@ -5,76 +5,771 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turtle Pop Games</title>
+    <meta name="description" content="Turtle Pop is a one-person game studio. CUBE ZERO — coming soon.">
+    <meta name="theme-color" content="#0a0a0c">
+    <link rel="icon" href="assets/img/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/img/icon-192.png">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: center;
-            line-height: 1.6;
-        }
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Turtle Pop Games">
+    <meta property="og:description" content="Turtle Pop is a one-person game studio. CUBE ZERO — coming soon.">
+    <meta property="og:image" content="assets/img/hero-poster.jpg">
 
-        h1 {
-            margin-bottom: 10px;
-        }
+<style>
+/* ============================================================
+   Turtle Pop Games — 단일 파일, 외부 의존 없음
+   ============================================================ */
 
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
+:root{
+    --bg:            #0a0a0c;
+    --bg-alt:        #111114;
+    --card:          #16161a;
+    --border:        #26262c;
+    --border-hi:     #34343d;
 
-        a:hover {
-            text-decoration: underline;
-        }
+    --text:          #c9c9d0;
+    --heading:       #f2f2f5;
+    --muted:         #7a7a85;
 
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-    </style>
+    --accent:        #2ec4c4;
+    --accent-dim:    rgba(46, 196, 196, .16);
+    --accent-glow:   rgba(46, 196, 196, .30);
+    --amber:         #ff9b3d;
+
+    --pad-x:         clamp(1.25rem, 5vw, 5rem);
+    --section-y:     clamp(4.5rem, 12vw, 9rem);
+    --radius:        14px;
+    --bar-h:         64px;
+
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+            "Malgun Gothic", "Noto Sans KR", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{
+    -webkit-text-size-adjust:100%;
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    /* 가로 스크롤 원천 차단 */
+    overflow-x:hidden;
+    max-width:100%;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font);
+    font-size:clamp(.95rem, .9rem + .25vw, 1.0625rem);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+}
+
+img,video{ max-width:100%; display:block; }
+
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:4px;
+}
+
+h1,h2,h3{
+    color:var(--heading);
+    line-height:1.15;
+    margin:0;
+    font-weight:800;
+}
+
+/* ---------- 공용 레이아웃 ---------- */
+.wrap{
+    width:100%;
+    max-width:1180px;
+    margin-inline:auto;
+    padding-inline:var(--pad-x);
+}
+
+.section{ padding-block:var(--section-y); }
+
+.section-head{ margin-bottom:clamp(2rem, 5vw, 3.25rem); }
+
+.section-title{
+    font-size:clamp(1.9rem, 1.2rem + 3.2vw, 3.4rem);
+    letter-spacing:.06em;
+    text-transform:uppercase;
+}
+
+.section-title::after{
+    content:"";
+    display:block;
+    width:56px;
+    height:3px;
+    margin-top:1rem;
+    background:var(--accent);
+    border-radius:2px;
+}
+
+/* ============================================================
+   1. 상단 고정 바
+   ============================================================ */
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    height:var(--bar-h);
+    display:flex;
+    align-items:center;
+    background:transparent;
+    border-bottom:1px solid transparent;
+    transition:background-color .28s ease, border-color .28s ease;
+}
+
+.topbar.is-scrolled{
+    background:rgba(10,10,12,.82);
+    border-bottom-color:var(--border);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    backdrop-filter:blur(14px) saturate(140%);
+}
+
+.topbar .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+}
+
+.wordmark{
+    color:var(--heading);
+    font-weight:900;
+    font-size:clamp(.95rem, .85rem + .35vw, 1.15rem);
+    letter-spacing:.16em;
+    text-decoration:none;
+    white-space:nowrap;
+}
+.wordmark:hover{ text-decoration:none; color:#fff; }
+
+/* 언어 토글 */
+.langtoggle{
+    display:inline-flex;
+    align-items:center;
+    border:1px solid var(--border-hi);
+    border-radius:999px;
+    overflow:hidden;
+    background:rgba(22,22,26,.6);
+}
+
+.langtoggle button{
+    appearance:none;
+    -webkit-appearance:none;
+    border:0;
+    background:transparent;
+    color:var(--muted);
+    font-family:inherit;
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    padding:.45rem .8rem;
+    cursor:pointer;
+    transition:color .2s ease, background-color .2s ease;
+}
+.langtoggle button:hover{ color:var(--heading); }
+
+.langtoggle button[aria-pressed="true"]{
+    color:#04191a;
+    background:var(--accent);
+}
+
+/* ============================================================
+   2. 히어로
+   ============================================================ */
+.hero{
+    position:relative;
+    min-height:600px;
+    height:100vh;
+    /* 상단바가 sticky이므로 화면 높이에서 바 높이를 뺀다 */
+    height:calc(100svh - var(--bar-h));
+    margin-top:calc(-1 * var(--bar-h));
+    padding-top:var(--bar-h);
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    isolation:isolate;
+}
+
+/* 배경 영상 (데스크톱=블러 분위기, 모바일=풀스크린) */
+.hero-bg{
+    position:absolute;
+    inset:0;
+    z-index:-2;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:blur(40px) brightness(.35);
+    transform:scale(1.12);   /* 블러 가장자리 비침 방지 */
+}
+
+.hero-veil{
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:
+        radial-gradient(120% 90% at 20% 30%, rgba(10,10,12,.35), rgba(10,10,12,.86) 70%),
+        linear-gradient(to bottom, rgba(10,10,12,.55), rgba(10,10,12,.25) 45%, var(--bg) 98%);
+}
+
+.hero .wrap{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:clamp(2rem, 5vw, 4rem);
+    align-items:center;
+    width:100%;
+}
+
+/* 카피 */
+.hero-copy{ text-align:center; }
+
+.hero-logo{
+    width:min(78vw, 420px);
+    margin-inline:auto;
+    height:auto;
+    filter:drop-shadow(0 10px 34px rgba(0,0,0,.65));
+}
+
+.hero-tag{
+    margin:1.4rem auto 0;
+    max-width:34ch;
+    color:#dcdce3;
+    font-size:clamp(1rem, .95rem + .5vw, 1.3rem);
+    line-height:1.6;
+    text-shadow:0 2px 14px rgba(0,0,0,.7);
+}
+
+.hero-cta{
+    display:inline-block;
+    margin-top:2rem;
+    padding:.85rem 2rem;
+    border:1px solid var(--accent);
+    border-radius:999px;
+    background:var(--accent-dim);
+    color:var(--accent);
+    font-weight:700;
+    font-size:.9rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    cursor:default;          /* 비활성이지만 커서는 기본 */
+    user-select:none;
+    -webkit-user-select:none;
+    box-shadow:0 0 0 6px rgba(46,196,196,.05);
+}
+
+/* 폰 목업 (데스크톱/태블릿 전용) */
+.hero-device{ display:none; justify-content:center; }
+
+.phone{
+    position:relative;
+    height:min(70vh, 560px);
+    aspect-ratio:9 / 16;
+    padding:8px;
+    border-radius:36px;
+    border:1px solid rgba(255,255,255,.14);
+    background:linear-gradient(160deg, #232329, #101014 60%);
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.6),
+        0 0 0 1px rgba(0,0,0,.5),
+        0 0 46px var(--accent-glow);
+}
+
+.phone::before{      /* 상단 스피커 슬릿 */
+    content:"";
+    position:absolute;
+    top:18px; left:50%;
+    transform:translateX(-50%);
+    width:74px; height:5px;
+    border-radius:3px;
+    background:rgba(255,255,255,.14);
+    z-index:2;
+}
+
+.phone video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:29px;
+    background:#000;
+}
+
+/* ============================================================
+   3. GAMES
+   ============================================================ */
+#games{ background:var(--bg); }
+
+.gamecard{
+    display:grid;
+    grid-template-columns:1fr;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.gamecard:hover{
+    transform:translateY(-6px);
+    border-color:var(--accent);
+    box-shadow:0 22px 46px rgba(0,0,0,.5), 0 0 30px rgba(46,196,196,.12);
+}
+
+.gamecard-media{
+    position:relative;
+    background:#08080a;
+    aspect-ratio:16 / 10;
+    overflow:hidden;
+}
+
+.gamecard-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transition:transform .5s ease;
+}
+.gamecard:hover .gamecard-media img{ transform:scale(1.04); }
+
+.gamecard-body{
+    padding:clamp(1.5rem, 4vw, 2.75rem);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:.9rem;
+}
+
+.badge{
+    align-self:flex-start;
+    padding:.3rem .8rem;
+    border:1px solid var(--amber);
+    border-radius:999px;
+    color:var(--amber);
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    background:rgba(255,155,61,.08);
+}
+
+.gamecard-title{
+    font-size:clamp(1.5rem, 1.1rem + 1.8vw, 2.4rem);
+    letter-spacing:.03em;
+}
+
+.gamecard-desc{ margin:0; color:var(--text); }
+
+.morelink{
+    align-self:flex-start;
+    margin-top:.6rem;
+    color:var(--accent);
+    font-weight:700;
+    letter-spacing:.04em;
+}
+.morelink::after{
+    content:" \2192";
+    display:inline-block;
+    transition:transform .25s ease;
+}
+.gamecard:hover .morelink::after{ transform:translateX(4px); }
+
+/* ============================================================
+   4. ABOUT
+   ============================================================ */
+#about{ background:var(--bg-alt); border-block:1px solid var(--border); }
+
+.about-body{ max-width:62ch; }
+
+.about-body p{
+    margin:0 0 1rem;
+    font-size:clamp(1rem, .95rem + .35vw, 1.2rem);
+}
+.about-body p:last-child{ margin-bottom:0; }
+
+/* ============================================================
+   5. 푸터
+   ============================================================ */
+.site-footer{
+    background:var(--bg);
+    padding-block:clamp(2.5rem, 6vw, 4rem);
+    border-top:1px solid var(--border);
+}
+
+.footer-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+    align-items:flex-start;
+    justify-content:space-between;
+}
+
+.footer-brand .wordmark{ display:inline-block; margin-bottom:.5rem; }
+
+.copyright{
+    margin:0;
+    color:var(--muted);
+    font-size:.82rem;
+}
+
+.footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:.55rem .85rem;
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+
+.footer-links a{
+    color:var(--text);
+    font-size:.88rem;
+}
+.footer-links a:hover{ color:var(--accent); }
+
+.footer-links .sep{
+    color:var(--border-hi);
+    user-select:none;
+    -webkit-user-select:none;
+    font-size:.8rem;
+}
+
+/* NeonDrop 방침 — 작게, 눈에 안 띄게. 단 반드시 존재 */
+.footer-minor{
+    width:100%;
+    margin:1.4rem 0 0;
+}
+.footer-minor a{
+    color:#5a5a63;
+    font-size:.7rem;
+    letter-spacing:.02em;
+}
+.footer-minor a:hover{ color:var(--muted); }
+
+/* ============================================================
+   반응형
+   ============================================================ */
+
+/* 모바일 (~767px): 폰 목업 없이 풀스크린 포스터 (영상 미로드) */
+@media (max-width:767px){
+    .hero-bg{
+        filter:none;
+        transform:none;
+    }
+    .hero-veil{
+        background:linear-gradient(
+            to bottom,
+            rgba(10,10,12,.72) 0%,
+            rgba(10,10,12,.42) 30%,
+            rgba(10,10,12,.55) 62%,
+            rgba(10,10,12,.94) 100%);
+    }
+    .hero .wrap{ justify-items:center; }
+}
+
+/* 태블릿 (768~1023px): 좁은 2단 + 축소된 목업 */
+@media (min-width:768px){
+    .hero .wrap{ grid-template-columns:minmax(0,1fr) minmax(0,.78fr); }
+    .hero-copy{ text-align:left; }
+    .hero-logo{ margin-inline:0; width:min(42vw, 380px); }
+    .hero-tag{ margin-inline:0; }
+    .hero-device{ display:flex; }
+    .phone{ height:min(58vh, 430px); }
+
+    .gamecard{ grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); }
+    .gamecard-media{ aspect-ratio:auto; height:100%; min-height:300px; }
+}
+
+/* 데스크톱 (1024px~) */
+@media (min-width:1024px){
+    .hero .wrap{ grid-template-columns:minmax(0,1fr) minmax(0,.85fr); }
+    .hero-logo{ width:min(34vw, 460px); }
+    .phone{ height:min(70vh, 560px); }
+    .gamecard-media{ min-height:380px; }
+}
+
+/* 모션 최소화 */
+@media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{
+        animation-duration:.001ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.001ms !important;
+    }
+    .gamecard:hover{ transform:none; }
+    .gamecard:hover .gamecard-media img{ transform:none; }
+}
+</style>
 </head>
 
 <body>
 
-    <h1>Turtle Pop Games</h1>
-
-    <p>
-        Mobile games developed by Turtle Pop.
-    </p>
-
-    <div class="card">
-        <h2>Privacy Policy</h2>
-        <p>
-            <a href="privacy_czero.html">
-                CUBE ZERO
-            </a>
-        </p>
-        <p>
-            <a href="privacy_policy.html">
-                NeonDrop
-            </a>
-        </p>
+<!-- ========== 1. 상단 고정 바 ========== -->
+<header class="topbar" id="topbar">
+    <div class="wrap">
+        <a class="wordmark" href="#top">TURTLE POP</a>
+        <nav aria-label="Language">
+            <div class="langtoggle" role="group" aria-label="Language selection">
+                <button type="button" data-lang="ko" aria-pressed="true">KO</button>
+                <button type="button" data-lang="en" aria-pressed="false">EN</button>
+            </div>
+        </nav>
     </div>
+</header>
 
-    <div class="card">
-        <h2>Account Deletion</h2>
-        <p>
-            <a href="delete_account_czero.html">
-                CUBE ZERO
-            </a>
-        </p>
-    </div>
+<main id="top">
 
-    <div class="card">
-        <h2>Contact</h2>
-        <p>
-            haromiki@gmail.com
-        </p>
+    <!-- ========== 2. 히어로 ========== -->
+    <section class="hero" aria-label="CUBE ZERO">
+        <video class="hero-bg" id="heroBg"
+               poster="assets/img/hero-poster.jpg"
+               muted loop playsinline autoplay preload="none"
+               aria-hidden="true" tabindex="-1"></video>
+        <div class="hero-veil" aria-hidden="true"></div>
+
+        <div class="wrap">
+            <div class="hero-copy">
+                <h1>
+                    <img class="hero-logo"
+                         src="assets/img/logo-cubezero.png"
+                         alt="CUBE ZERO"
+                         width="600" height="200">
+                </h1>
+
+                <p class="hero-tag"
+                   data-ko="한 수를 고민하게 만드는 큐브 그리드 디펜스."
+                   data-en="A cube grid defense where every move is worth thinking over.">한 수를 고민하게 만드는 큐브 그리드 디펜스.</p>
+
+                <span class="hero-cta" aria-disabled="true"
+                      data-ko="출시 예정"
+                      data-en="Coming Soon">출시 예정</span>
+            </div>
+
+            <div class="hero-device">
+                <div class="phone">
+                    <video id="heroPhone"
+                           poster="assets/img/hero-poster.jpg"
+                           muted loop playsinline autoplay preload="none"
+                           aria-label="CUBE ZERO gameplay teaser"></video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 3. GAMES ========== -->
+    <section class="section" id="games" aria-labelledby="games-title">
+        <div class="wrap">
+            <div class="section-head">
+                <h2 class="section-title" id="games-title">GAMES</h2>
+            </div>
+
+            <article class="gamecard">
+                <div class="gamecard-media">
+                    <img src="assets/img/shot-1.jpg"
+                         alt="CUBE ZERO gameplay screenshot"
+                         loading="lazy" width="540" height="960">
+                </div>
+                <div class="gamecard-body">
+                    <span class="badge"
+                          data-ko="출시 예정" data-en="Coming Soon">출시 예정</span>
+
+                    <h3 class="gamecard-title">CUBE ZERO</h3>
+
+                    <p class="gamecard-desc"
+                       data-ko="밀려오는 적 큐브를 막아내는 그리드 디펜스. 운이 아니라 배치와 순서가 결과를 만듭니다."
+                       data-en="A grid defense against advancing enemy cubes. Placement and order decide the outcome — not luck.">밀려오는 적 큐브를 막아내는 그리드 디펜스. 운이 아니라 배치와 순서가 결과를 만듭니다.</p>
+
+                    <a class="morelink" href="cubezero.html"
+                       data-ko="자세히 보기" data-en="Learn more">자세히 보기</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ========== 4. ABOUT ========== -->
+    <section class="section" id="about" aria-labelledby="about-title">
+        <div class="wrap">
+            <div class="section-head">
+                <h2 class="section-title" id="about-title"
+                    data-ko="만드는 사람" data-en="Who We Are">만드는 사람</h2>
+            </div>
+
+            <div class="about-body">
+                <p data-ko="터틀팝은 1인 개발 스튜디오입니다."
+                   data-en="Turtle Pop is a one-person game studio.">터틀팝은 1인 개발 스튜디오입니다.</p>
+
+                <p data-ko="운에 기대지 않는 게임, 실패의 이유가 분명한 게임을 만듭니다."
+                   data-en="We make games that don't rely on luck — games where failure has a clear reason.">운에 기대지 않는 게임, 실패의 이유가 분명한 게임을 만듭니다.</p>
+
+                <p data-ko="화면을 가득 채우는 화려함보다, 한 수를 고민하게 만드는 설계를 좋아합니다."
+                   data-en="We care more about a board worth thinking over than spectacle that fills the screen.">화면을 가득 채우는 화려함보다, 한 수를 고민하게 만드는 설계를 좋아합니다.</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ========== 5. 푸터 ========== -->
+<footer class="site-footer">
+    <div class="wrap">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="wordmark">TURTLE POP</span>
+                <p class="copyright">&copy; 2026 Turtle Pop. All rights reserved.</p>
+            </div>
+
+            <nav aria-label="Footer">
+                <ul class="footer-links">
+                    <li><a href="privacy_czero.html"
+                           data-ko="개인정보처리방침" data-en="Privacy Policy">개인정보처리방침</a></li>
+                    <li aria-hidden="true" class="sep">/</li>
+                    <li><a href="delete_account_czero.html"
+                           data-ko="계정 삭제" data-en="Delete Account">계정 삭제</a></li>
+                    <li aria-hidden="true" class="sep">/</li>
+                    <li><a href="mailto:haromiki@gmail.com"
+                           data-ko="문의" data-en="Contact">문의</a></li>
+                </ul>
+            </nav>
+
+            <p class="footer-minor">
+                <a href="privacy_policy.html"
+                   data-ko="NeonDrop 개인정보처리방침"
+                   data-en="NeonDrop Privacy Policy">NeonDrop 개인정보처리방침</a>
+            </p>
+        </div>
     </div>
+</footer>
+
+<script>
+(function () {
+    "use strict";
+
+    /* ---------- 상단바 스크롤 감지 ---------- */
+    var topbar = document.getElementById("topbar");
+    var ticking = false;
+
+    function syncBar() {
+        if (window.scrollY > 8) { topbar.classList.add("is-scrolled"); }
+        else { topbar.classList.remove("is-scrolled"); }
+        ticking = false;
+    }
+
+    window.addEventListener("scroll", function () {
+        if (!ticking) {
+            ticking = true;
+            window.requestAnimationFrame(syncBar);
+        }
+    }, { passive: true });
+
+    syncBar();
+
+    /* ---------- 한/영 전환 ---------- */
+    var STORE_KEY = "tp-lang";
+    var nodes = document.querySelectorAll("[data-ko][data-en]");
+    var buttons = document.querySelectorAll(".langtoggle button");
+
+    function readStored() {
+        try { return window.localStorage.getItem(STORE_KEY); }
+        catch (e) { return null; }
+    }
+
+    function writeStored(lang) {
+        try { window.localStorage.setItem(STORE_KEY, lang); }
+        catch (e) { /* 저장 불가 환경은 무시 */ }
+    }
+
+    function applyLang(lang) {
+        var key = (lang === "ko") ? "ko" : "en";
+        var i;
+
+        for (i = 0; i < nodes.length; i++) {
+            nodes[i].textContent = nodes[i].getAttribute("data-" + key);
+        }
+        for (i = 0; i < buttons.length; i++) {
+            buttons[i].setAttribute(
+                "aria-pressed",
+                buttons[i].getAttribute("data-lang") === key ? "true" : "false"
+            );
+        }
+        document.documentElement.setAttribute("lang", key);
+    }
+
+    for (var b = 0; b < buttons.length; b++) {
+        buttons[b].addEventListener("click", function () {
+            var lang = this.getAttribute("data-lang");
+            applyLang(lang);
+            writeStored(lang);
+        });
+    }
+
+    var stored = readStored();
+    var initial;
+    if (stored === "ko" || stored === "en") {
+        initial = stored;
+    } else {
+        var nav = (navigator.language || navigator.userLanguage || "en").toLowerCase();
+        initial = (nav.indexOf("ko") === 0) ? "ko" : "en";
+    }
+    applyLang(initial);
+
+    /* ---------- 히어로 영상 ----------
+       - 768px 이상에서만 src를 채워 재생 (모바일 데이터 절약 → poster만)
+       - prefers-reduced-motion: reduce 면 재생하지 않고 poster만
+    */
+    var VIDEO_SRC = "assets/video/hero.mp4";
+    var wide = window.matchMedia("(min-width: 768px)");
+    var calm = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var videos = [
+        document.getElementById("heroBg"),
+        document.getElementById("heroPhone")
+    ];
+
+    function loadVideos() {
+        for (var i = 0; i < videos.length; i++) {
+            var v = videos[i];
+            if (!v || v.getAttribute("src")) { continue; }
+            v.setAttribute("src", VIDEO_SRC);
+            v.setAttribute("preload", "auto");
+            v.load();
+            var p = v.play();
+            if (p && typeof p.catch === "function") {
+                p.catch(function () { /* 자동재생 차단 시 poster 유지 */ });
+            }
+        }
+    }
+
+    function unloadVideos() {
+        for (var i = 0; i < videos.length; i++) {
+            var v = videos[i];
+            if (!v || !v.getAttribute("src")) { continue; }
+            v.pause();
+            v.removeAttribute("src");
+            v.setAttribute("preload", "none");
+            v.load();
+        }
+    }
+
+    function syncVideo() {
+        if (wide.matches && !calm.matches) { loadVideos(); }
+        else { unloadVideos(); }
+    }
+
+    function listen(mq, fn) {
+        if (typeof mq.addEventListener === "function") { mq.addEventListener("change", fn); }
+        else if (typeof mq.addListener === "function") { mq.addListener(fn); }
+    }
+
+    listen(wide, syncVideo);
+    listen(calm, syncVideo);
+    syncVideo();
+})();
+</script>
 
 </body>
 </html>
