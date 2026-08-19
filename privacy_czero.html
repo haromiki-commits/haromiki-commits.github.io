@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
 
     <style>
         body {
-            font-family: Arial, "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", "Noto Sans Arabic", sans-serif;
+            font-family: Arial, "Noto Sans KR", "Noto Sans JP", "Noto Sans SC", "Noto Sans TC", "Noto Sans Thai", "Noto Sans Arabic", sans-serif;
             max-width: 900px;
             margin: 40px auto;
             padding: 20px;
@@ -49,23 +49,23 @@
             margin: 20px 0 30px;
         }
 
-        nav button {
+        nav label {
+            font-size: 14px;
+            color: #666;
+            margin-right: 8px;
+        }
+
+        nav select {
             font: inherit;
             font-size: 14px;
             padding: 6px 14px;
-            margin: 0 6px 6px 0;
-            border: 1px solid #ddd;
+            border: 1px solid #0b6b6b;
             background: #f5f5f5;
-            color: #666;
+            color: #0b6b6b;
+            font-weight: bold;
             border-radius: 20px;
             cursor: pointer;
-        }
-
-        nav button[aria-selected="true"] {
-            background: #0b6b6b;
-            border-color: #0b6b6b;
-            color: #fff;
-            font-weight: bold;
+            max-width: 100%;
         }
 
         section {
@@ -96,20 +96,38 @@
 <body>
 
     <p class="game">CUBE ZERO</p>
-    <h1 id="pageTitle">개인정보 처리방침</h1>
+    <h1 id="pageTitle">Privacy Policy</h1>
 
     <nav id="langNav">
-        <button data-lang="ko" aria-selected="true">한국어</button>
-        <button data-lang="en" aria-selected="false">English</button>
-        <button data-lang="ja" aria-selected="false">日本語</button>
-        <button data-lang="zh" aria-selected="false">简体中文</button>
-        <button data-lang="ar" aria-selected="false">العربية</button>
+        <label for="langSelect">Language</label>
+        <select id="langSelect">
+            <option value="ko">한국어</option>
+            <option value="en" selected>English</option>
+            <option value="ja">日本語</option>
+            <option value="zh">简体中文</option>
+            <option value="zhHant">繁體中文</option>
+            <option value="ar">العربية</option>
+            <option value="ptBr">Português (Brasil)</option>
+            <option value="es">Español (España)</option>
+            <option value="es419">Español (Latinoamérica)</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="it">Italiano</option>
+            <option value="nl">Nederlands</option>
+            <option value="pl">Polski</option>
+            <option value="ru">Русский</option>
+            <option value="tr">Türkçe</option>
+            <option value="fi">Suomi</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ms">Bahasa Melayu</option>
+        </select>
     </nav>
 
     <!-- 한국어 -->
-    <section id="ko" class="active" lang="ko">
-        <p class="date">최종 업데이트: 2026-07-26</p>
-
+    <section id="ko" lang="ko">
+        <p class="date">최종 업데이트: 2026-08-19</p>
         <p>본 개인정보 처리방침은 모바일 게임 "큐브제로" (이하 "게임")의 개인정보 처리 방식에 대해 설명합니다.</p>
 
         <h2>1. 수집하는 정보</h2>
@@ -151,8 +169,11 @@
         <p>광고 제공 과정에서 광고 식별자 등의 정보가 사용될 수 있습니다.</p>
 
         <h2>6. 개인정보 보관 및 삭제</h2>
+        <p>계정 정보와 게임 진행 기록은 계정이 유지되는 동안 보관합니다.</p>
+        <p>게임 재화 이용 기록은 문의 대응과 오류 확인을 위해 일정 기간 보관 후 삭제합니다.</p>
+        <p>결제 관련 기록은 관련 법령이 정한 기간 동안 보관합니다.</p>
         <p>사용자는 게임 삭제를 통해 로컬 데이터를 제거할 수 있습니다.</p>
-        <p>클라우드 데이터 삭제를 원할 경우 아래 문의처로 요청할 수 있습니다.</p>
+        <p>클라우드 데이터 삭제를 원할 경우 아래 문의처로 요청할 수 있습니다. 단 법령상 의무, 분쟁 해결, 약관 이행에 필요한 범위는 그 기간 동안 보관합니다.</p>
 
         <h2>7. 아동 사용자</h2>
         <p>본 게임은 모든 연령 사용 가능을 목표로 하지만, 법적 요구사항에 따라 일부 서비스 이용이 제한될 수 있습니다.</p>
@@ -166,9 +187,8 @@
     </section>
 
     <!-- English -->
-    <section id="en" lang="en">
-        <p class="date">Last updated: 2026-07-26</p>
-
+    <section id="en" class="active" lang="en">
+        <p class="date">Last updated: 2026-08-19</p>
         <p>This Privacy Policy explains how the mobile game "Cube Zero" (the "Game") handles personal information.</p>
 
         <h2>1. Information We Collect</h2>
@@ -210,8 +230,11 @@
         <p>Information such as the advertising ID may be used in the course of serving ads.</p>
 
         <h2>6. Retention and Deletion of Personal Information</h2>
+        <p>Account information and game progress records are retained for as long as the account is maintained.</p>
+        <p>Records of in-game currency transactions are retained for a certain period to respond to inquiries and to verify errors, and are then deleted.</p>
+        <p>Payment-related records are retained for the period prescribed by applicable laws.</p>
         <p>Users can remove local data by deleting the Game.</p>
-        <p>If you wish to have your cloud data deleted, you may request it at the contact address below.</p>
+        <p>If you wish to have your cloud data deleted, you may request it at the contact address below. However, information necessary for legal obligations, dispute resolution, or enforcement of our terms is retained for the duration of that period.</p>
 
         <h2>7. Child Users</h2>
         <p>The Game aims to be usable by all ages, but the use of some services may be restricted in accordance with legal requirements.</p>
@@ -226,8 +249,7 @@
 
     <!-- 日本語 -->
     <section id="ja" lang="ja">
-        <p class="date">最終更新: 2026-07-26</p>
-
+        <p class="date">最終更新: 2026-08-19</p>
         <p>本プライバシーポリシーは、モバイルゲーム「キューブゼロ」(以下「本ゲーム」)における個人情報の取り扱いについて説明します。</p>
 
         <h2>1. 収集する情報</h2>
@@ -269,8 +291,11 @@
         <p>広告の配信の過程で、広告識別子などの情報が利用されることがあります。</p>
 
         <h2>6. 個人情報の保管および削除</h2>
+        <p>アカウント情報およびゲームの進行記録は、アカウントが維持されている間保管します。</p>
+        <p>ゲーム内通貨の利用記録は、お問い合わせ対応および不具合確認のため一定期間保管したうえで削除します。</p>
+        <p>決済に関する記録は、関連法令が定める期間保管します。</p>
         <p>ユーザーは本ゲームを削除することでローカルデータを削除できます。</p>
-        <p>クラウドデータの削除をご希望の場合は、下記の問い合わせ先にご請求いただけます。</p>
+        <p>クラウドデータの削除をご希望の場合は、下記の問い合わせ先にご請求いただけます。ただし、法令上の義務、紛争の解決、規約の履行に必要な範囲については、その期間中保管します。</p>
 
         <h2>7. 児童の利用</h2>
         <p>本ゲームは全年齢での利用を目指していますが、法的要件により一部のサービス利用が制限される場合があります。</p>
@@ -285,8 +310,7 @@
 
     <!-- 简体中文 -->
     <section id="zh" lang="zh-Hans">
-        <p class="date">最后更新: 2026-07-26</p>
-
+        <p class="date">最后更新: 2026-08-19</p>
         <p>本隐私政策说明手机游戏“方块零”(以下简称“本游戏”)如何处理个人信息。</p>
 
         <h2>1. 收集的信息</h2>
@@ -328,8 +352,11 @@
         <p>在投放广告的过程中，可能会使用广告标识符等信息。</p>
 
         <h2>6. 个人信息的保管与删除</h2>
+        <p>账号信息及游戏进度记录在账号存续期间予以保管。</p>
+        <p>游戏内货币的使用记录将为应对咨询和排查错误而保留一定期间，之后予以删除。</p>
+        <p>与支付相关的记录按相关法律法规规定的期限保管。</p>
         <p>用户可以通过删除本游戏来清除本地数据。</p>
-        <p>如希望删除云端数据，可通过下方联系方式提出请求。</p>
+        <p>如希望删除云端数据，可通过下方联系方式提出请求。但为履行法定义务、解决纠纷或执行条款所必需的范围，将在该期间内继续保管。</p>
 
         <h2>7. 儿童用户</h2>
         <p>本游戏以全年龄可用为目标，但根据法律要求，部分服务的使用可能会受到限制。</p>
@@ -342,10 +369,70 @@
         <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
     </section>
 
+    <!-- 繁體中文 -->
+    <section id="zhHant" lang="zh-Hant">
+        <p class="date">最後更新：2026-08-19</p>
+        <p>本隱私權政策說明行動遊戲「Cube Zero」（以下稱「本遊戲」）如何處理個人資料。</p>
+
+        <h2>1. 我們蒐集的資訊</h2>
+        <p>本遊戲可能會蒐集或儲存以下資訊。</p>
+        <ul>
+            <li>Google 登入帳號資訊</li>
+            <li>遊戲暱稱</li>
+            <li>遊戲分數與等級資料</li>
+            <li>廣告識別碼（Advertising ID）</li>
+            <li>裝置資訊與錯誤記錄</li>
+            <li>遊戲使用紀錄</li>
+        </ul>
+
+        <h2>2. 資訊使用目的</h2>
+        <p>蒐集的資訊將用於以下用途。</p>
+        <ul>
+            <li>儲存與復原遊戲資料</li>
+            <li>提供線上排名</li>
+            <li>營運遊戲服務</li>
+            <li>分析錯誤並改善效能</li>
+            <li>提供廣告與統計分析</li>
+        </ul>
+
+        <h2>3. 使用的服務</h2>
+        <p>本遊戲可能會使用以下外部服務。</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>各服務的隱私權政策依其服務提供者的政策為準。</p>
+
+        <h2>4. 資料儲存</h2>
+        <p>遊戲資料可能會儲存在 Firebase 伺服器上，使用者可透過 Google 登入帳號復原資料。</p>
+
+        <h2>5. 廣告</h2>
+        <p>本遊戲可能會透過 Google AdMob 顯示廣告。</p>
+        <p>在提供廣告的過程中，可能會使用廣告識別碼等資訊。</p>
+
+        <h2>6. 個人資料的保存與刪除</h2>
+        <p>帳號資訊與遊戲進度紀錄於帳號存續期間予以保存。</p>
+        <p>遊戲內貨幣的使用紀錄將為回覆詢問及確認錯誤而保存一定期間，之後予以刪除。</p>
+        <p>與付款相關的紀錄依相關法令所定期間保存。</p>
+        <p>使用者可透過刪除本遊戲移除本機資料。</p>
+        <p>如需刪除雲端資料，可透過下方聯絡方式提出申請。惟履行法令義務、解決爭議或執行條款所必要之範圍，於該期間內仍予保存。</p>
+
+        <h2>7. 兒童使用者</h2>
+        <p>本遊戲以所有年齡層皆可使用為目標，但依法律要求，部分服務的使用可能會受到限制。</p>
+
+        <h2>8. 政策變更</h2>
+        <p>本隱私權政策可能會視需要修訂；如有變更，將公布最新版本。</p>
+
+        <h2>9. 聯絡方式</h2>
+        <p>聯絡信箱：</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
     <!-- العربية -->
     <section id="ar" lang="ar" dir="rtl">
-        <p class="date">آخر تحديث: 2026-07-26</p>
-
+        <p class="date">آخر تحديث: 2026-08-19</p>
         <p>توضّح سياسة الخصوصية هذه كيفية تعامل لعبة الهاتف المحمول "كيوب زيرو" ("اللعبة") مع المعلومات الشخصية.</p>
 
         <h2>1. المعلومات التي نجمعها</h2>
@@ -387,8 +474,11 @@
         <p>قد تُستخدم معلومات مثل معرّف الإعلانات أثناء عرض الإعلانات.</p>
 
         <h2>6. الاحتفاظ بالمعلومات الشخصية وحذفها</h2>
+        <p>يُحتفظ بمعلومات الحساب وسجلات تقدّم اللعب طوال مدة بقاء الحساب.</p>
+        <p>يُحتفظ بسجلات استخدام العملة داخل اللعبة لمدة معيّنة للرد على الاستفسارات والتحقق من الأخطاء، ثم تُحذف.</p>
+        <p>يُحتفظ بالسجلات المتعلقة بالدفع للمدة التي تحدّدها القوانين ذات الصلة.</p>
         <p>يمكن للمستخدمين إزالة البيانات المحلية عن طريق حذف اللعبة.</p>
-        <p>وإذا رغبت في حذف بياناتك السحابية، يمكنك طلب ذلك عبر جهة الاتصال أدناه.</p>
+        <p>وإذا رغبت في حذف بياناتك السحابية، يمكنك طلب ذلك عبر جهة الاتصال أدناه. غير أنه يُحتفظ بالنطاق اللازم للوفاء بالالتزامات القانونية أو تسوية النزاعات أو تنفيذ الشروط طوال تلك المدة.</p>
 
         <h2>7. المستخدمون الأطفال</h2>
         <p>تهدف اللعبة إلى أن تكون متاحة لجميع الأعمار، غير أن استخدام بعض الخدمات قد يكون مقيّدًا وفقًا للمتطلبات القانونية.</p>
@@ -401,6 +491,921 @@
         <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
     </section>
 
+    <!-- Português (Brasil) -->
+    <section id="ptBr" lang="pt-BR">
+        <p class="date">Última atualização: 2026-08-19</p>
+        <p>Esta Política de Privacidade explica como o jogo para dispositivos móveis "Cube Zero" (doravante, o "Jogo") trata informações pessoais.</p>
+
+        <h2>1. Informações que coletamos</h2>
+        <p>O Jogo pode coletar ou armazenar as seguintes informações.</p>
+        <ul>
+            <li>Informações da conta usada para entrar com o Google</li>
+            <li>Apelido usado no jogo</li>
+            <li>Dados de pontuação e progresso no jogo</li>
+            <li>Identificador de publicidade (Advertising ID)</li>
+            <li>Informações do dispositivo e registros de erros</li>
+            <li>Registros de uso do jogo</li>
+        </ul>
+
+        <h2>2. Como usamos as informações</h2>
+        <p>As informações coletadas são usadas para as seguintes finalidades.</p>
+        <ul>
+            <li>Salvar e restaurar dados do jogo</li>
+            <li>Disponibilizar rankings on-line</li>
+            <li>Operar o serviço do jogo</li>
+            <li>Analisar erros e melhorar o desempenho</li>
+            <li>Exibir anúncios e realizar análises estatísticas</li>
+        </ul>
+
+        <h2>3. Serviços utilizados</h2>
+        <p>O Jogo pode utilizar os seguintes serviços de terceiros.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>A política de privacidade de cada serviço é regida pela política do respectivo provedor.</p>
+
+        <h2>4. Armazenamento de dados</h2>
+        <p>Os dados do jogo podem ser armazenados nos servidores do Firebase, e o usuário pode restaurá-los usando a conta do Google utilizada para entrar no Jogo.</p>
+
+        <h2>5. Publicidade</h2>
+        <p>O Jogo pode exibir anúncios por meio do Google AdMob.</p>
+        <p>Durante a exibição de anúncios, informações como o identificador de publicidade podem ser utilizadas.</p>
+
+        <h2>6. Retenção e exclusão de informações pessoais</h2>
+        <p>As informações da conta e os registros de progresso no jogo são mantidos enquanto a conta for mantida.</p>
+        <p>Os registros de uso da moeda do jogo são mantidos por um determinado período para atendimento a solicitações e verificação de erros, e depois excluídos.</p>
+        <p>Os registros relacionados a pagamentos são mantidos pelo período determinado pela legislação aplicável.</p>
+        <p>O usuário pode excluir os dados locais desinstalando o Jogo.</p>
+        <p>Para solicitar a exclusão dos dados armazenados na nuvem, entre em contato pelo endereço informado abaixo. Contudo, o que for necessário para o cumprimento de obrigações legais, a resolução de disputas ou a execução dos termos será mantido durante esse período.</p>
+
+        <h2>7. Usuários menores de idade</h2>
+        <p>O Jogo foi desenvolvido para ser apropriado para todas as idades, mas o uso de alguns serviços pode ser restringido conforme as exigências legais aplicáveis.</p>
+
+        <h2>8. Alterações nesta política</h2>
+        <p>Esta Política de Privacidade pode ser alterada quando necessário. Em caso de alteração, a versão mais recente será disponibilizada.</p>
+
+        <h2>9. Contato</h2>
+        <p>E-mail para contato:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Español (España) -->
+    <section id="es" lang="es">
+        <p class="date">Última actualización: 2026-08-19</p>
+        <p>Esta Política de privacidad explica cómo el juego para móviles "Cube Zero" (en adelante, el "Juego") trata los datos personales.</p>
+
+        <h2>1. Información que recopilamos</h2>
+        <p>El Juego puede recopilar o almacenar la siguiente información.</p>
+        <ul>
+            <li>Información de la cuenta utilizada para iniciar sesión con Google</li>
+            <li>Apodo dentro del juego</li>
+            <li>Datos de puntuación y nivel del juego</li>
+            <li>Identificador publicitario (Advertising ID)</li>
+            <li>Información del dispositivo y registros de errores</li>
+            <li>Registros de uso del juego</li>
+        </ul>
+
+        <h2>2. Cómo usamos la información</h2>
+        <p>La información recopilada se utiliza para los siguientes fines.</p>
+        <ul>
+            <li>Guardar y restaurar los datos del juego</li>
+            <li>Proporcionar clasificaciones en línea</li>
+            <li>Operar el servicio del juego</li>
+            <li>Analizar errores y mejorar el rendimiento</li>
+            <li>Mostrar publicidad y realizar análisis estadísticos</li>
+        </ul>
+
+        <h2>3. Servicios que utilizamos</h2>
+        <p>El Juego puede utilizar los siguientes servicios externos.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>La política de privacidad de cada servicio se rige por la política de su proveedor correspondiente.</p>
+
+        <h2>4. Almacenamiento de datos</h2>
+        <p>Los datos del juego pueden almacenarse en servidores de Firebase, y los usuarios pueden restaurarlos mediante su cuenta de inicio de sesión de Google.</p>
+
+        <h2>5. Publicidad</h2>
+        <p>El Juego puede mostrar anuncios a través de Google AdMob.</p>
+        <p>Durante la publicación de anuncios puede utilizarse información como el identificador de publicidad.</p>
+
+        <h2>6. Conservación y eliminación de datos personales</h2>
+        <p>La información de la cuenta y los registros de progreso del juego se conservan mientras se mantenga la cuenta.</p>
+        <p>Los registros de uso de la moneda del juego se conservan durante un período determinado para atender consultas y verificar errores, y después se eliminan.</p>
+        <p>Los registros relacionados con pagos se conservan durante el período establecido por la legislación aplicable.</p>
+        <p>Los usuarios pueden eliminar los datos locales desinstalando el Juego.</p>
+        <p>Si desea eliminar sus datos almacenados en la nube, puede solicitarlo a través del contacto indicado a continuación. No obstante, lo necesario para cumplir obligaciones legales, resolver disputas o hacer cumplir los términos se conserva durante ese período.</p>
+
+        <h2>7. Usuarios menores de edad</h2>
+        <p>El Juego está diseñado para ser apto para todas las edades, pero el uso de algunos servicios puede estar restringido de acuerdo con los requisitos legales aplicables.</p>
+
+        <h2>8. Cambios en esta política</h2>
+        <p>Esta Política de privacidad puede modificarse cuando sea necesario. Si se realizan cambios, se publicará la versión más reciente.</p>
+
+        <h2>9. Contacto</h2>
+        <p>Correo electrónico de contacto:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Español (Latinoamérica) -->
+    <section id="es419" lang="es-419">
+        <p class="date">Última actualización: 2026-08-19</p>
+        <p>Esta Política de privacidad explica cómo el juego móvil "Cube Zero" (en adelante, el "Juego") trata la información personal.</p>
+
+        <h2>1. Información que recopilamos</h2>
+        <p>El Juego puede recopilar o almacenar la siguiente información.</p>
+        <ul>
+            <li>Información de la cuenta utilizada para iniciar sesión con Google</li>
+            <li>Apodo dentro del juego</li>
+            <li>Datos de puntuación y nivel del juego</li>
+            <li>Identificador de publicidad (Advertising ID)</li>
+            <li>Información del dispositivo y registros de errores</li>
+            <li>Registros de uso del juego</li>
+        </ul>
+
+        <h2>2. Cómo usamos la información</h2>
+        <p>La información recopilada se utiliza para los siguientes fines.</p>
+        <ul>
+            <li>Guardar y restaurar los datos del juego</li>
+            <li>Proporcionar clasificaciones en línea</li>
+            <li>Operar el servicio del juego</li>
+            <li>Analizar errores y mejorar el rendimiento</li>
+            <li>Mostrar publicidad y realizar análisis estadísticos</li>
+        </ul>
+
+        <h2>3. Servicios que utilizamos</h2>
+        <p>El Juego puede utilizar los siguientes servicios externos.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>La política de privacidad de cada servicio se rige por la política de su proveedor correspondiente.</p>
+
+        <h2>4. Almacenamiento de datos</h2>
+        <p>Los datos del juego pueden almacenarse en servidores de Firebase, y los usuarios pueden restaurarlos mediante su cuenta de inicio de sesión de Google.</p>
+
+        <h2>5. Publicidad</h2>
+        <p>El Juego puede mostrar anuncios a través de Google AdMob.</p>
+        <p>Durante la publicación de anuncios puede utilizarse información como el identificador de publicidad.</p>
+
+        <h2>6. Conservación y eliminación de información personal</h2>
+        <p>La información de la cuenta y los registros de progreso del juego se conservan mientras se mantenga la cuenta.</p>
+        <p>Los registros de uso de la moneda del juego se conservan durante un período determinado para atender consultas y verificar errores, y luego se eliminan.</p>
+        <p>Los registros relacionados con pagos se conservan durante el período establecido por la legislación aplicable.</p>
+        <p>Los usuarios pueden eliminar los datos locales desinstalando el Juego.</p>
+        <p>Si desea eliminar sus datos almacenados en la nube, puede solicitarlo a través del contacto indicado a continuación. No obstante, lo necesario para cumplir obligaciones legales, resolver disputas o hacer cumplir los términos se conserva durante ese período.</p>
+
+        <h2>7. Usuarios menores de edad</h2>
+        <p>El Juego está diseñado para ser apto para todas las edades, pero el uso de algunos servicios puede estar restringido de acuerdo con los requisitos legales aplicables.</p>
+
+        <h2>8. Cambios en esta política</h2>
+        <p>Esta Política de privacidad puede modificarse cuando sea necesario. Si se realizan cambios, se publicará la versión más reciente.</p>
+
+        <h2>9. Contacto</h2>
+        <p>Correo electrónico de contacto:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Deutsch -->
+    <section id="de" lang="de">
+        <p class="date">Letzte Aktualisierung: 2026-08-19</p>
+        <p>Diese Datenschutzerklärung erläutert, wie das Mobile Game „Cube Zero“ (im Folgenden „Spiel“) personenbezogene Daten verarbeitet.</p>
+
+        <h2>1. Erhobene Daten</h2>
+        <p>Das Spiel kann die folgenden Daten erheben oder speichern.</p>
+        <ul>
+            <li>Kontoinformationen für die Google-Anmeldung</li>
+            <li>Nickname im Spiel</li>
+            <li>Spielstand-, Punkte- und Leveldaten</li>
+            <li>Werbe-ID (Advertising ID)</li>
+            <li>Geräteinformationen und Fehlerprotokolle</li>
+            <li>Nutzungs- und Spielverlauf</li>
+        </ul>
+
+        <h2>2. Verwendungszwecke</h2>
+        <p>Die erhobenen Daten werden für die folgenden Zwecke verwendet.</p>
+        <ul>
+            <li>Speichern und Wiederherstellen von Spieldaten</li>
+            <li>Bereitstellen von Online-Ranglisten</li>
+            <li>Betrieb des Spieldienstes</li>
+            <li>Fehleranalyse und Leistungsverbesserung</li>
+            <li>Ausspielen von Werbung und statistische Auswertung</li>
+        </ul>
+
+        <h2>3. Verwendete Dienste</h2>
+        <p>Das Spiel kann die folgenden externen Dienste verwenden.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>Für die Datenschutzbestimmungen der einzelnen Dienste gelten die Richtlinien des jeweiligen Anbieters.</p>
+
+        <h2>4. Datenspeicherung</h2>
+        <p>Spieldaten können auf Firebase-Servern gespeichert werden. Nutzer können ihre Daten über ihr Google-Anmeldekonto wiederherstellen.</p>
+
+        <h2>5. Werbung</h2>
+        <p>Das Spiel kann Werbung über Google AdMob anzeigen.</p>
+        <p>Bei der Ausspielung von Werbung können Informationen wie die Werbe-ID verwendet werden.</p>
+
+        <h2>6. Aufbewahrung und Löschung personenbezogener Daten</h2>
+        <p>Kontoinformationen und Spielfortschrittsdaten werden für die Dauer des Bestehens des Kontos aufbewahrt.</p>
+        <p>Aufzeichnungen über die Nutzung der Spielwährung werden für einen bestimmten Zeitraum zur Bearbeitung von Anfragen und zur Fehlerprüfung aufbewahrt und danach gelöscht.</p>
+        <p>Zahlungsbezogene Aufzeichnungen werden für den gesetzlich vorgeschriebenen Zeitraum aufbewahrt.</p>
+        <p>Nutzer können lokale Daten entfernen, indem sie das Spiel deinstallieren.</p>
+        <p>Wenn Sie die Löschung Ihrer Cloud-Daten wünschen, können Sie dies über die unten angegebene Kontaktadresse beantragen. Soweit dies zur Erfüllung gesetzlicher Pflichten, zur Beilegung von Streitigkeiten oder zur Durchsetzung der Bedingungen erforderlich ist, werden die Daten jedoch für diesen Zeitraum aufbewahrt.</p>
+
+        <h2>7. Minderjährige Nutzer</h2>
+        <p>Das Spiel ist grundsätzlich für alle Altersgruppen vorgesehen. Aufgrund gesetzlicher Vorgaben kann die Nutzung einzelner Dienste jedoch eingeschränkt sein.</p>
+
+        <h2>8. Änderungen dieser Erklärung</h2>
+        <p>Diese Datenschutzerklärung kann bei Bedarf geändert werden. Bei Änderungen wird die jeweils aktuelle Fassung veröffentlicht.</p>
+
+        <h2>9. Kontakt</h2>
+        <p>Kontakt-E-Mail:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Français -->
+    <section id="fr" lang="fr">
+        <p class="date">Dernière mise à jour : 2026-08-19</p>
+        <p>La présente Politique de confidentialité explique comment le jeu mobile « Cube Zero » (ci-après le « Jeu ») traite les informations personnelles.</p>
+
+        <h2>1. Informations collectées</h2>
+        <p>Le Jeu peut collecter ou conserver les informations suivantes.</p>
+        <ul>
+            <li>Informations du compte de connexion Google</li>
+            <li>Pseudonyme dans le Jeu</li>
+            <li>Données de score et de niveau</li>
+            <li>Identifiant publicitaire (Advertising ID)</li>
+            <li>Informations sur l'appareil et journaux d'erreurs</li>
+            <li>Historique d'utilisation du Jeu</li>
+        </ul>
+
+        <h2>2. Utilisation des informations</h2>
+        <p>Les informations collectées sont utilisées aux fins suivantes.</p>
+        <ul>
+            <li>Sauvegarde et restauration des données du Jeu</li>
+            <li>Mise à disposition des classements en ligne</li>
+            <li>Exploitation du service de jeu</li>
+            <li>Analyse des erreurs et amélioration des performances</li>
+            <li>Diffusion de publicités et analyse statistique</li>
+        </ul>
+
+        <h2>3. Services utilisés</h2>
+        <p>Le Jeu peut utiliser les services externes suivants.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>La politique de confidentialité de chaque service est régie par les conditions de son fournisseur respectif.</p>
+
+        <h2>4. Stockage des données</h2>
+        <p>Les données du Jeu peuvent être stockées sur les serveurs Firebase. Les utilisateurs peuvent restaurer leurs données à l'aide de leur compte de connexion Google.</p>
+
+        <h2>5. Publicité</h2>
+        <p>Le Jeu peut afficher des publicités par l'intermédiaire de Google AdMob.</p>
+        <p>Des informations telles que l'identifiant publicitaire peuvent être utilisées lors de la diffusion des publicités.</p>
+
+        <h2>6. Conservation et suppression des informations personnelles</h2>
+        <p>Les informations de compte et les enregistrements de progression dans le jeu sont conservés tant que le compte est maintenu.</p>
+        <p>Les enregistrements d'utilisation de la monnaie du jeu sont conservés pendant une certaine durée afin de traiter les demandes et de vérifier les erreurs, puis supprimés.</p>
+        <p>Les enregistrements relatifs aux paiements sont conservés pendant la durée prévue par la législation applicable.</p>
+        <p>Les utilisateurs peuvent supprimer les données locales en désinstallant le Jeu.</p>
+        <p>Pour demander la suppression des données stockées dans le cloud, vous pouvez contacter l'adresse indiquée ci-dessous. Toutefois, ce qui est nécessaire au respect d'obligations légales, au règlement de litiges ou à l'exécution des conditions est conservé pendant cette durée.</p>
+
+        <h2>7. Utilisateurs mineurs</h2>
+        <p>Le Jeu est conçu pour être accessible à tous les âges, mais l'accès à certains services peut être limité conformément aux exigences légales.</p>
+
+        <h2>8. Modifications de la présente politique</h2>
+        <p>La présente Politique de confidentialité peut être modifiée si nécessaire. En cas de modification, la version la plus récente sera mise à disposition.</p>
+
+        <h2>9. Contact</h2>
+        <p>E-mail de contact :</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Italiano -->
+    <section id="it" lang="it">
+        <p class="date">Ultimo aggiornamento: 2026-08-19</p>
+        <p>La presente Informativa sulla privacy descrive come il gioco per dispositivi mobili "Cube Zero" (il "Gioco") tratta i dati personali.</p>
+
+        <h2>1. Dati raccolti</h2>
+        <p>Il Gioco può raccogliere o conservare le seguenti informazioni.</p>
+        <ul>
+            <li>Informazioni dell'account usato per accedere con Google</li>
+            <li>Nickname utilizzato nel Gioco</li>
+            <li>Dati relativi a punteggi e livelli</li>
+            <li>ID pubblicitario</li>
+            <li>Informazioni sul dispositivo e registri degli errori</li>
+            <li>Registri di gioco</li>
+        </ul>
+
+        <h2>2. Come utilizziamo i dati</h2>
+        <p>I dati raccolti vengono utilizzati per le seguenti finalità.</p>
+        <ul>
+            <li>Salvare e ripristinare i dati di gioco</li>
+            <li>Fornire classifiche online</li>
+            <li>Gestire il servizio di gioco</li>
+            <li>Analizzare gli errori e migliorare le prestazioni</li>
+            <li>Mostrare pubblicità ed effettuare analisi statistiche</li>
+        </ul>
+
+        <h2>3. Servizi utilizzati</h2>
+        <p>Il Gioco può utilizzare i seguenti servizi di terze parti.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>Le modalità di trattamento dei dati da parte di ciascun servizio sono disciplinate dall'informativa sulla privacy del relativo fornitore.</p>
+
+        <h2>4. Conservazione dei dati</h2>
+        <p>I dati di gioco possono essere conservati sui server Firebase. Gli utenti possono ripristinarli tramite l'account Google utilizzato per l'accesso.</p>
+
+        <h2>5. Pubblicità</h2>
+        <p>Il Gioco può mostrare pubblicità tramite Google AdMob.</p>
+        <p>Durante la visualizzazione degli annunci possono essere utilizzate informazioni come l'ID pubblicitario.</p>
+
+        <h2>6. Conservazione e cancellazione dei dati personali</h2>
+        <p>Le informazioni dell'account e i dati di avanzamento di gioco sono conservati per tutto il tempo in cui l'account resta attivo.</p>
+        <p>I dati relativi all'utilizzo della valuta di gioco sono conservati per un determinato periodo per rispondere alle richieste e verificare gli errori, e successivamente cancellati.</p>
+        <p>I dati relativi ai pagamenti sono conservati per il periodo previsto dalla normativa applicabile.</p>
+        <p>Gli utenti possono eliminare i dati locali disinstallando il Gioco.</p>
+        <p>Per richiedere la cancellazione dei dati conservati nel cloud, è possibile contattarci all'indirizzo indicato di seguito. Tuttavia, quanto necessario per adempiere a obblighi di legge, risolvere controversie o dare esecuzione ai termini è conservato per tale periodo.</p>
+
+        <h2>7. Utenti minorenni</h2>
+        <p>Il Gioco è progettato per essere accessibile a utenti di tutte le età, ma l'utilizzo di alcuni servizi può essere limitato in conformità con i requisiti di legge.</p>
+
+        <h2>8. Modifiche alla presente Informativa</h2>
+        <p>La presente Informativa sulla privacy può essere aggiornata quando necessario. In caso di modifiche, verrà resa disponibile la versione più recente.</p>
+
+        <h2>9. Contatti</h2>
+        <p>E-mail:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Nederlands -->
+    <section id="nl" lang="nl">
+        <p class="date">Laatst bijgewerkt: 2026-08-19</p>
+        <p>Dit Privacybeleid beschrijft hoe het mobiele spel "Cube Zero" (het "Spel") persoonsgegevens verwerkt.</p>
+
+        <h2>1. Gegevens die we verzamelen</h2>
+        <p>Het Spel kan de volgende gegevens verzamelen of opslaan.</p>
+        <ul>
+            <li>Gegevens van het Google-account waarmee je inlogt</li>
+            <li>Nickname in het Spel</li>
+            <li>Gegevens over scores en levels</li>
+            <li>Advertentie-ID</li>
+            <li>Apparaatgegevens en foutlogboeken</li>
+            <li>Spelgegevens en gebruikslogs</li>
+        </ul>
+
+        <h2>2. Hoe we gegevens gebruiken</h2>
+        <p>De verzamelde gegevens worden voor de volgende doeleinden gebruikt.</p>
+        <ul>
+            <li>Spelgegevens opslaan en herstellen</li>
+            <li>Online ranglijsten aanbieden</li>
+            <li>De spelservice beheren</li>
+            <li>Fouten analyseren en prestaties verbeteren</li>
+            <li>Advertenties tonen en statistische analyses uitvoeren</li>
+        </ul>
+
+        <h2>3. Gebruikte diensten</h2>
+        <p>Het Spel kan gebruikmaken van de volgende externe diensten.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>Op elke dienst is het privacybeleid van de betreffende dienstverlener van toepassing.</p>
+
+        <h2>4. Opslag van gegevens</h2>
+        <p>Spelgegevens kunnen op Firebase-servers worden opgeslagen. Gebruikers kunnen hun gegevens herstellen via het Google-account waarmee zij zijn ingelogd.</p>
+
+        <h2>5. Advertenties</h2>
+        <p>Het Spel kan advertenties tonen via Google AdMob.</p>
+        <p>Bij het tonen van advertenties kunnen gegevens zoals de advertentie-ID worden gebruikt.</p>
+
+        <h2>6. Bewaren en verwijderen van persoonsgegevens</h2>
+        <p>Accountgegevens en gegevens over de voortgang in het spel worden bewaard zolang het account bestaat.</p>
+        <p>Gegevens over het gebruik van de in-game valuta worden gedurende een bepaalde periode bewaard om vragen te kunnen beantwoorden en fouten te kunnen controleren, en worden daarna verwijderd.</p>
+        <p>Gegevens met betrekking tot betalingen worden bewaard gedurende de door de toepasselijke wetgeving voorgeschreven periode.</p>
+        <p>Gebruikers kunnen lokale gegevens verwijderen door het Spel te verwijderen.</p>
+        <p>Wil je gegevens die in de cloud zijn opgeslagen laten verwijderen, dan kun je daarvoor een verzoek indienen via het onderstaande contactadres. Wat noodzakelijk is voor het nakomen van wettelijke verplichtingen, het beslechten van geschillen of het uitvoeren van de voorwaarden, wordt echter gedurende die periode bewaard.</p>
+
+        <h2>7. Minderjarige gebruikers</h2>
+        <p>Het Spel is bedoeld voor gebruikers van alle leeftijden. Het gebruik van bepaalde diensten kan echter op grond van wettelijke vereisten worden beperkt.</p>
+
+        <h2>8. Wijzigingen in dit beleid</h2>
+        <p>Dit Privacybeleid kan indien nodig worden aangepast. Wanneer er wijzigingen zijn, wordt de meest recente versie beschikbaar gesteld.</p>
+
+        <h2>9. Contact</h2>
+        <p>E-mail:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Polski -->
+    <section id="pl" lang="pl">
+        <p class="date">Ostatnia aktualizacja: 2026-08-19</p>
+        <p>Niniejsza Polityka prywatności opisuje, w jaki sposób gra mobilna „Cube Zero” („Gra”) przetwarza dane osobowe.</p>
+
+        <h2>1. Gromadzone dane</h2>
+        <p>Gra może gromadzić lub przechowywać następujące informacje.</p>
+        <ul>
+            <li>Dane konta Google używanego do logowania</li>
+            <li>Pseudonim używany w Grze</li>
+            <li>Dane dotyczące wyniku i poziomu</li>
+            <li>Identyfikator reklamowy</li>
+            <li>Informacje o urządzeniu i dzienniki błędów</li>
+            <li>Dane dotyczące rozgrywki</li>
+        </ul>
+
+        <h2>2. Sposób wykorzystywania danych</h2>
+        <p>Zebrane dane są wykorzystywane w następujących celach.</p>
+        <ul>
+            <li>Zapisywanie i przywracanie danych Gry</li>
+            <li>Udostępnianie rankingów online</li>
+            <li>Obsługa usługi gry</li>
+            <li>Analiza błędów i poprawa wydajności</li>
+            <li>Wyświetlanie reklam i prowadzenie analiz statystycznych</li>
+        </ul>
+
+        <h2>3. Wykorzystywane usługi</h2>
+        <p>Gra może korzystać z następujących usług zewnętrznych.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>Sposób przetwarzania danych przez każdą z tych usług podlega polityce prywatności odpowiedniego usługodawcy.</p>
+
+        <h2>4. Przechowywanie danych</h2>
+        <p>Dane Gry mogą być przechowywane na serwerach Firebase. Użytkownicy mogą przywrócić swoje dane za pomocą konta Google używanego do logowania.</p>
+
+        <h2>5. Reklamy</h2>
+        <p>Gra może wyświetlać reklamy za pośrednictwem Google AdMob.</p>
+        <p>Podczas wyświetlania reklam mogą być wykorzystywane informacje takie jak identyfikator reklamowy.</p>
+
+        <h2>6. Przechowywanie i usuwanie danych osobowych</h2>
+        <p>Informacje o koncie oraz zapisy postępów w grze są przechowywane przez okres utrzymywania konta.</p>
+        <p>Zapisy dotyczące korzystania z waluty w grze są przechowywane przez określony czas w celu obsługi zapytań i weryfikacji błędów, a następnie usuwane.</p>
+        <p>Zapisy związane z płatnościami są przechowywane przez okres określony przez właściwe przepisy prawa.</p>
+        <p>Użytkownik może usunąć dane lokalne, odinstalowując Grę.</p>
+        <p>Aby poprosić o usunięcie danych przechowywanych w chmurze, należy skontaktować się z nami pod podanym niżej adresem. Zakres niezbędny do wypełnienia obowiązków prawnych, rozstrzygnięcia sporów lub wykonania warunków jest jednak przechowywany przez ten okres.</p>
+
+        <h2>7. Użytkownicy niepełnoletni</h2>
+        <p>Gra jest przeznaczona dla użytkowników w każdym wieku, jednak dostęp do niektórych usług może być ograniczony zgodnie z obowiązującymi przepisami.</p>
+
+        <h2>8. Zmiany niniejszej polityki</h2>
+        <p>Niniejsza Polityka prywatności może być w razie potrzeby aktualizowana. W przypadku zmian udostępniona zostanie jej najnowsza wersja.</p>
+
+        <h2>9. Kontakt</h2>
+        <p>E-mail:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Русский -->
+    <section id="ru" lang="ru">
+        <p class="date">Последнее обновление: 2026-08-19</p>
+        <p>Настоящая Политика конфиденциальности описывает, как мобильная игра «Cube Zero» (далее — «Игра») обрабатывает персональные данные.</p>
+
+        <h2>1. Какие данные мы собираем</h2>
+        <p>Игра может собирать или хранить следующие данные.</p>
+        <ul>
+            <li>Данные учётной записи Google, используемой для входа</li>
+            <li>Имя игрока в Игре</li>
+            <li>Данные о результатах и уровнях в Игре</li>
+            <li>Рекламный идентификатор (Advertising ID)</li>
+            <li>Данные об устройстве и журналы ошибок</li>
+            <li>Данные об использовании Игры</li>
+        </ul>
+
+        <h2>2. Как мы используем данные</h2>
+        <p>Собранные данные используются в следующих целях.</p>
+        <ul>
+            <li>Сохранение и восстановление игровых данных</li>
+            <li>Предоставление онлайн-рейтингов</li>
+            <li>Обеспечение работы игрового сервиса</li>
+            <li>Анализ ошибок и повышение производительности</li>
+            <li>Показ рекламы и статистический анализ</li>
+        </ul>
+
+        <h2>3. Используемые сервисы</h2>
+        <p>Игра может использовать следующие сторонние сервисы.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>Обработка данных каждым из этих сервисов регулируется политикой соответствующего поставщика.</p>
+
+        <h2>4. Хранение данных</h2>
+        <p>Игровые данные могут храниться на серверах Firebase. Пользователи могут восстановить свои данные с помощью учётной записи Google, используемой для входа.</p>
+
+        <h2>5. Реклама</h2>
+        <p>Игра может показывать рекламу с помощью Google AdMob.</p>
+        <p>При показе рекламы могут использоваться такие данные, как рекламный идентификатор.</p>
+
+        <h2>6. Хранение и удаление персональных данных</h2>
+        <p>Данные учётной записи и записи об игровом прогрессе хранятся в течение всего времени существования учётной записи.</p>
+        <p>Записи об использовании внутриигровой валюты хранятся в течение определённого срока для обработки обращений и проверки ошибок, после чего удаляются.</p>
+        <p>Записи, связанные с платежами, хранятся в течение срока, установленного применимым законодательством.</p>
+        <p>Пользователь может удалить локальные данные, удалив Игру с устройства.</p>
+        <p>Если вы хотите удалить данные, хранящиеся в облаке, отправьте запрос по контактному адресу, указанному ниже. Однако сведения, необходимые для исполнения требований законодательства, разрешения споров или исполнения условий соглашения, хранятся в течение соответствующего срока.</p>
+
+        <h2>7. Дети</h2>
+        <p>Игра рассчитана на пользователей всех возрастов, однако доступ к некоторым сервисам может быть ограничен в соответствии с требованиями законодательства.</p>
+
+        <h2>8. Изменения Политики</h2>
+        <p>Настоящая Политика конфиденциальности может обновляться по мере необходимости. При внесении изменений будет опубликована её актуальная версия.</p>
+
+        <h2>9. Контакты</h2>
+        <p>Электронная почта для связи:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Türkçe -->
+    <section id="tr" lang="tr">
+        <p class="date">Son güncelleme: 2026-08-19</p>
+        <p>Bu Gizlilik Politikası, "Cube Zero" adlı mobil oyunun ("Oyun") kişisel verileri nasıl işlediğini açıklar.</p>
+
+        <h2>1. Topladığımız Bilgiler</h2>
+        <p>Oyun aşağıdaki bilgileri toplayabilir veya saklayabilir.</p>
+        <ul>
+            <li>Google ile oturum açma hesap bilgileri</li>
+            <li>Oyun içi takma ad</li>
+            <li>Oyun skoru ve seviye verileri</li>
+            <li>Reklam Kimliği</li>
+            <li>Cihaz bilgileri ve hata günlükleri</li>
+            <li>Oynanış kayıtları</li>
+        </ul>
+
+        <h2>2. Bilgileri Nasıl Kullanıyoruz</h2>
+        <p>Toplanan bilgiler aşağıdaki amaçlarla kullanılır.</p>
+        <ul>
+            <li>Oyun verilerini kaydetmek ve geri yüklemek</li>
+            <li>Çevrim içi sıralamaları sunmak</li>
+            <li>Oyun hizmetini işletmek</li>
+            <li>Hataları analiz etmek ve performansı iyileştirmek</li>
+            <li>Reklam göstermek ve istatistiksel analiz yapmak</li>
+        </ul>
+
+        <h2>3. Kullandığımız Hizmetler</h2>
+        <p>Oyun aşağıdaki harici hizmetleri kullanabilir.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>Her hizmetin gizlilik politikası, ilgili hizmet sağlayıcısının politikasına tabidir.</p>
+
+        <h2>4. Verilerin Saklanması</h2>
+        <p>Oyun verileri Firebase sunucularında saklanabilir ve kullanıcılar verilerini Google ile oturum açtıkları hesap üzerinden geri yükleyebilir.</p>
+
+        <h2>5. Reklamlar</h2>
+        <p>Oyun, Google AdMob aracılığıyla reklam gösterebilir.</p>
+        <p>Reklamların sunulması sırasında Reklam Kimliği gibi bilgiler kullanılabilir.</p>
+
+        <h2>6. Kişisel Verilerin Saklanması ve Silinmesi</h2>
+        <p>Hesap bilgileri ve oyun ilerleme kayıtları, hesap var olduğu sürece saklanır.</p>
+        <p>Oyun içi para birimi kullanım kayıtları, taleplerin yanıtlanması ve hataların doğrulanması amacıyla belirli bir süre saklandıktan sonra silinir.</p>
+        <p>Ödemeye ilişkin kayıtlar, ilgili mevzuatın öngördüğü süre boyunca saklanır.</p>
+        <p>Kullanıcılar Oyunu cihazlarından silerek yerel verileri kaldırabilir.</p>
+        <p>Bulutta saklanan verilerinizin silinmesini istiyorsanız aşağıdaki iletişim adresinden talepte bulunabilirsiniz. Ancak yasal yükümlülüklerin yerine getirilmesi, uyuşmazlıkların çözümü veya koşulların uygulanması için gereken kapsam, bu süre boyunca saklanır.</p>
+
+        <h2>7. Çocuk Kullanıcılar</h2>
+        <p>Oyun her yaştan kullanıcı tarafından kullanılabilecek şekilde tasarlanmıştır; ancak bazı hizmetlerin kullanımı yasal gereklilikler uyarınca kısıtlanabilir.</p>
+
+        <h2>8. Bu Politikadaki Değişiklikler</h2>
+        <p>Bu Gizlilik Politikası gerektiğinde güncellenebilir. Değişiklik yapıldığında en güncel sürüm kullanıma sunulur.</p>
+
+        <h2>9. İletişim</h2>
+        <p>İletişim e-postası:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Suomi -->
+    <section id="fi" lang="fi">
+        <p class="date">Viimeksi päivitetty: 2026-08-19</p>
+        <p>Tässä tietosuojakäytännössä kerrotaan, miten mobiilipeli "Cube Zero" ("Peli") käsittelee henkilötietoja.</p>
+
+        <h2>1. Kerättävät tiedot</h2>
+        <p>Peli voi kerätä tai tallentaa seuraavia tietoja.</p>
+        <ul>
+            <li>Google-kirjautumiseen käytetyn tilin tiedot</li>
+            <li>Pelissä käytettävä nimimerkki</li>
+            <li>Piste- ja kenttätiedot</li>
+            <li>Mainostunniste</li>
+            <li>Laitetiedot ja virhelokit</li>
+            <li>Pelin käyttö- ja pelitiedot</li>
+        </ul>
+
+        <h2>2. Tietojen käyttötarkoitukset</h2>
+        <p>Kerättyjä tietoja käytetään seuraaviin tarkoituksiin.</p>
+        <ul>
+            <li>Pelitietojen tallentamiseen ja palauttamiseen</li>
+            <li>Verkkosijoitusten tarjoamiseen</li>
+            <li>Pelipalvelun ylläpitämiseen</li>
+            <li>Virheiden analysointiin ja suorituskyvyn parantamiseen</li>
+            <li>Mainosten näyttämiseen ja tilastolliseen analyysiin</li>
+        </ul>
+
+        <h2>3. Käytettävät palvelut</h2>
+        <p>Peli voi käyttää seuraavia ulkopuolisia palveluita.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>Kunkin palvelun suorittamaan tietojen käsittelyyn sovelletaan kyseisen palveluntarjoajan tietosuojakäytäntöä.</p>
+
+        <h2>4. Tietojen säilytys</h2>
+        <p>Pelitietoja voidaan tallentaa Firebase-palvelimille. Käyttäjä voi palauttaa tietonsa Google-kirjautumiseen käyttämänsä tilin avulla.</p>
+
+        <h2>5. Mainonta</h2>
+        <p>Peli voi näyttää mainoksia Google AdMobin kautta.</p>
+        <p>Mainoksia näytettäessä voidaan käyttää esimerkiksi mainostunnistetta.</p>
+
+        <h2>6. Henkilötietojen säilyttäminen ja poistaminen</h2>
+        <p>Tilitiedot ja pelin edistymistiedot säilytetään niin kauan kuin tili on olemassa.</p>
+        <p>Pelin sisäisen valuutan käyttöä koskevat tiedot säilytetään tietyn ajan yhteydenottoihin vastaamista ja virheiden tarkistamista varten, minkä jälkeen ne poistetaan.</p>
+        <p>Maksuihin liittyvät tiedot säilytetään sovellettavan lainsäädännön määrittämän ajan.</p>
+        <p>Käyttäjä voi poistaa paikalliset tiedot poistamalla Pelin laitteelta.</p>
+        <p>Jos haluat pyytää pilveen tallennettujen tietojen poistamista, ota yhteyttä alla olevaan osoitteeseen. Lakisääteisten velvoitteiden täyttämiseksi, riitojen ratkaisemiseksi tai ehtojen täytäntöönpanemiseksi tarpeelliset tiedot säilytetään kuitenkin kyseisen ajan.</p>
+
+        <h2>7. Alaikäiset käyttäjät</h2>
+        <p>Peli on suunniteltu kaikenikäisille käyttäjille, mutta joidenkin palveluiden käyttöä voidaan rajoittaa lain vaatimusten mukaisesti.</p>
+
+        <h2>8. Muutokset tähän käytäntöön</h2>
+        <p>Tätä tietosuojakäytäntöä voidaan päivittää tarvittaessa. Muutosten yhteydessä saataville asetetaan aina uusin versio.</p>
+
+        <h2>9. Yhteystiedot</h2>
+        <p>Sähköposti:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- ไทย -->
+    <section id="th" lang="th">
+        <p class="date">อัปเดตล่าสุด: 2026-08-19</p>
+        <p>นโยบายความเป็นส่วนตัวฉบับนี้อธิบายว่าเกมมือถือ "Cube Zero" (ต่อไปนี้เรียกว่า "เกม") จัดการข้อมูลส่วนบุคคลอย่างไร</p>
+
+        <h2>1. ข้อมูลที่เราเก็บรวบรวม</h2>
+        <p>เกมอาจเก็บรวบรวมหรือจัดเก็บข้อมูลต่อไปนี้</p>
+        <ul>
+            <li>ข้อมูลบัญชีที่ใช้เข้าสู่ระบบด้วย Google</li>
+            <li>ชื่อเล่นในเกม</li>
+            <li>ข้อมูลคะแนนและเลเวลในเกม</li>
+            <li>รหัสโฆษณา (Advertising ID)</li>
+            <li>ข้อมูลอุปกรณ์และบันทึกข้อผิดพลาด</li>
+            <li>ประวัติการเล่นเกม</li>
+        </ul>
+
+        <h2>2. วัตถุประสงค์ในการใช้ข้อมูล</h2>
+        <p>ข้อมูลที่เก็บรวบรวมจะถูกใช้เพื่อวัตถุประสงค์ต่อไปนี้</p>
+        <ul>
+            <li>บันทึกและกู้คืนข้อมูลเกม</li>
+            <li>ให้บริการอันดับออนไลน์</li>
+            <li>ดำเนินการให้บริการเกม</li>
+            <li>วิเคราะห์ข้อผิดพลาดและปรับปรุงประสิทธิภาพ</li>
+            <li>แสดงโฆษณาและวิเคราะห์สถิติ</li>
+        </ul>
+
+        <h2>3. บริการที่ใช้</h2>
+        <p>เกมอาจใช้บริการภายนอกต่อไปนี้</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>นโยบายความเป็นส่วนตัวของแต่ละบริการเป็นไปตามนโยบายของผู้ให้บริการนั้น ๆ</p>
+
+        <h2>4. การจัดเก็บข้อมูล</h2>
+        <p>ข้อมูลเกมอาจถูกจัดเก็บไว้บนเซิร์ฟเวอร์ Firebase และผู้ใช้สามารถกู้คืนข้อมูลผ่านบัญชีที่ใช้เข้าสู่ระบบด้วย Google</p>
+
+        <h2>5. โฆษณา</h2>
+        <p>เกมอาจแสดงโฆษณาผ่าน Google AdMob</p>
+        <p>ในระหว่างการแสดงโฆษณา อาจมีการใช้ข้อมูล เช่น รหัสโฆษณา</p>
+
+        <h2>6. การเก็บรักษาและการลบข้อมูลส่วนบุคคล</h2>
+        <p>ข้อมูลบัญชีและบันทึกความคืบหน้าในเกมจะถูกเก็บรักษาไว้ตลอดระยะเวลาที่บัญชียังคงอยู่</p>
+        <p>บันทึกการใช้สกุลเงินในเกมจะถูกเก็บรักษาไว้ระยะเวลาหนึ่งเพื่อตอบข้อสอบถามและตรวจสอบข้อผิดพลาด จากนั้นจะถูกลบ</p>
+        <p>บันทึกที่เกี่ยวข้องกับการชำระเงินจะถูกเก็บรักษาไว้ตามระยะเวลาที่กฎหมายที่เกี่ยวข้องกำหนด</p>
+        <p>ผู้ใช้สามารถลบข้อมูลที่จัดเก็บไว้ในอุปกรณ์ได้โดยการลบเกม</p>
+        <p>หากต้องการให้ลบข้อมูลที่จัดเก็บไว้บนคลาวด์ สามารถส่งคำขอไปยังช่องทางติดต่อด้านล่าง ทั้งนี้ ข้อมูลในขอบเขตที่จำเป็นต่อการปฏิบัติตามหน้าที่ทางกฎหมาย การระงับข้อพิพาท หรือการบังคับใช้ข้อกำหนด จะถูกเก็บรักษาไว้ตลอดระยะเวลาดังกล่าว</p>
+
+        <h2>7. ผู้ใช้ที่เป็นเด็ก</h2>
+        <p>เกมมีเป้าหมายให้ผู้ใช้ทุกวัยสามารถเล่นได้ แต่อาจจำกัดการใช้บริการบางอย่างตามข้อกำหนดทางกฎหมาย</p>
+
+        <h2>8. การเปลี่ยนแปลงนโยบาย</h2>
+        <p>นโยบายความเป็นส่วนตัวฉบับนี้อาจมีการแก้ไขตามความจำเป็น และเมื่อมีการเปลี่ยนแปลงจะเผยแพร่ฉบับล่าสุด</p>
+
+        <h2>9. ติดต่อ</h2>
+        <p>อีเมลติดต่อ:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Tiếng Việt -->
+    <section id="vi" lang="vi">
+        <p class="date">Cập nhật lần cuối: 2026-08-19</p>
+        <p>Chính sách quyền riêng tư này giải thích cách trò chơi di động "Cube Zero" (sau đây gọi là "Trò chơi") xử lý thông tin cá nhân.</p>
+
+        <h2>1. Thông tin chúng tôi thu thập</h2>
+        <p>Trò chơi có thể thu thập hoặc lưu trữ các thông tin sau.</p>
+        <ul>
+            <li>Thông tin tài khoản đăng nhập Google</li>
+            <li>Biệt danh trong trò chơi</li>
+            <li>Dữ liệu điểm số và cấp độ</li>
+            <li>Mã nhận dạng quảng cáo (Advertising ID)</li>
+            <li>Thông tin thiết bị và nhật ký lỗi</li>
+            <li>Lịch sử sử dụng trò chơi</li>
+        </ul>
+
+        <h2>2. Mục đích sử dụng thông tin</h2>
+        <p>Thông tin thu thập được sử dụng cho các mục đích sau.</p>
+        <ul>
+            <li>Lưu và khôi phục dữ liệu trò chơi</li>
+            <li>Cung cấp bảng xếp hạng trực tuyến</li>
+            <li>Vận hành dịch vụ trò chơi</li>
+            <li>Phân tích lỗi và cải thiện hiệu suất</li>
+            <li>Cung cấp quảng cáo và phân tích thống kê</li>
+        </ul>
+
+        <h2>3. Dịch vụ được sử dụng</h2>
+        <p>Trò chơi có thể sử dụng các dịch vụ bên ngoài sau.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>Chính sách quyền riêng tư của từng dịch vụ tuân theo chính sách của nhà cung cấp dịch vụ tương ứng.</p>
+
+        <h2>4. Lưu trữ dữ liệu</h2>
+        <p>Dữ liệu trò chơi có thể được lưu trên máy chủ Firebase, và người dùng có thể khôi phục dữ liệu thông qua tài khoản đăng nhập Google.</p>
+
+        <h2>5. Quảng cáo</h2>
+        <p>Trò chơi có thể hiển thị quảng cáo thông qua Google AdMob.</p>
+        <p>Trong quá trình cung cấp quảng cáo, các thông tin như Mã nhận dạng quảng cáo có thể được sử dụng.</p>
+
+        <h2>6. Lưu giữ và xóa thông tin cá nhân</h2>
+        <p>Thông tin tài khoản và hồ sơ tiến trình chơi được lưu giữ trong suốt thời gian tài khoản còn tồn tại.</p>
+        <p>Hồ sơ sử dụng tiền tệ trong trò chơi được lưu giữ trong một thời gian nhất định để giải đáp thắc mắc và kiểm tra lỗi, sau đó sẽ được xóa.</p>
+        <p>Hồ sơ liên quan đến thanh toán được lưu giữ trong thời hạn do pháp luật liên quan quy định.</p>
+        <p>Người dùng có thể xóa dữ liệu cục bộ bằng cách xóa Trò chơi khỏi thiết bị.</p>
+        <p>Nếu muốn xóa dữ liệu trên đám mây, bạn có thể gửi yêu cầu tới địa chỉ liên hệ bên dưới. Tuy nhiên, phạm vi cần thiết để thực hiện nghĩa vụ pháp lý, giải quyết tranh chấp hoặc thực thi các điều khoản sẽ được lưu giữ trong thời hạn đó.</p>
+
+        <h2>7. Người dùng là trẻ em</h2>
+        <p>Trò chơi hướng tới khả năng sử dụng cho mọi lứa tuổi, tuy nhiên việc sử dụng một số dịch vụ có thể bị hạn chế theo yêu cầu pháp luật.</p>
+
+        <h2>8. Thay đổi chính sách</h2>
+        <p>Chính sách quyền riêng tư này có thể được sửa đổi khi cần thiết. Khi có thay đổi, phiên bản mới nhất sẽ được công bố.</p>
+
+        <h2>9. Liên hệ</h2>
+        <p>Email liên hệ:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Bahasa Indonesia -->
+    <section id="id" lang="id">
+        <p class="date">Terakhir diperbarui: 2026-08-19</p>
+        <p>Kebijakan Privasi ini menjelaskan bagaimana game seluler "Cube Zero" (selanjutnya disebut "Game") menangani informasi pribadi.</p>
+
+        <h2>1. Informasi yang Kami Kumpulkan</h2>
+        <p>Game dapat mengumpulkan atau menyimpan informasi berikut.</p>
+        <ul>
+            <li>Informasi akun untuk masuk dengan Google</li>
+            <li>Nama panggilan dalam game</li>
+            <li>Data skor dan level game</li>
+            <li>ID Iklan (Advertising ID)</li>
+            <li>Informasi perangkat dan log kesalahan</li>
+            <li>Catatan permainan</li>
+        </ul>
+
+        <h2>2. Cara Kami Menggunakan Informasi</h2>
+        <p>Informasi yang dikumpulkan digunakan untuk tujuan berikut.</p>
+        <ul>
+            <li>Menyimpan dan memulihkan data game</li>
+            <li>Menyediakan peringkat online</li>
+            <li>Menjalankan layanan game</li>
+            <li>Menganalisis kesalahan dan meningkatkan performa</li>
+            <li>Menayangkan iklan dan melakukan analisis statistik</li>
+        </ul>
+
+        <h2>3. Layanan yang Kami Gunakan</h2>
+        <p>Game dapat menggunakan layanan eksternal berikut.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>Kebijakan privasi masing-masing layanan mengikuti kebijakan penyedia layanan terkait.</p>
+
+        <h2>4. Penyimpanan Data</h2>
+        <p>Data game dapat disimpan di server Firebase, dan pengguna dapat memulihkan data melalui akun yang digunakan untuk masuk dengan Google.</p>
+
+        <h2>5. Iklan</h2>
+        <p>Game dapat menampilkan iklan melalui Google AdMob.</p>
+        <p>Informasi seperti ID Iklan dapat digunakan saat iklan ditayangkan.</p>
+
+        <h2>6. Penyimpanan dan Penghapusan Informasi Pribadi</h2>
+        <p>Informasi akun dan catatan kemajuan permainan disimpan selama akun masih dipertahankan.</p>
+        <p>Catatan penggunaan mata uang dalam permainan disimpan selama jangka waktu tertentu untuk menanggapi pertanyaan dan memeriksa kesalahan, kemudian dihapus.</p>
+        <p>Catatan terkait pembayaran disimpan selama jangka waktu yang ditetapkan oleh peraturan perundang-undangan yang berlaku.</p>
+        <p>Pengguna dapat menghapus data lokal dengan menghapus Game dari perangkat.</p>
+        <p>Jika ingin menghapus data yang tersimpan di cloud, Anda dapat mengajukan permintaan melalui alamat kontak di bawah ini. Namun, hal yang diperlukan untuk memenuhi kewajiban hukum, menyelesaikan sengketa, atau menegakkan ketentuan akan disimpan selama jangka waktu tersebut.</p>
+
+        <h2>7. Pengguna Anak</h2>
+        <p>Game dirancang agar dapat digunakan oleh semua usia, tetapi penggunaan beberapa layanan dapat dibatasi sesuai persyaratan hukum.</p>
+
+        <h2>8. Perubahan pada Kebijakan Ini</h2>
+        <p>Kebijakan Privasi ini dapat diperbarui bila diperlukan. Jika ada perubahan, versi terbaru akan disediakan.</p>
+
+        <h2>9. Kontak</h2>
+        <p>Email kontak:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
+    <!-- Bahasa Melayu -->
+    <section id="ms" lang="ms">
+        <p class="date">Kemas kini terakhir: 2026-08-19</p>
+        <p>Dasar Privasi ini menerangkan cara permainan mudah alih "Cube Zero" ("Permainan") mengendalikan data peribadi.</p>
+
+        <h2>1. Maklumat yang Kami Kumpulkan</h2>
+        <p>Permainan mungkin mengumpul atau menyimpan maklumat berikut.</p>
+        <ul>
+            <li>Maklumat akaun log masuk Google</li>
+            <li>Nama samaran dalam permainan</li>
+            <li>Data skor dan tahap permainan</li>
+            <li>ID pengiklanan</li>
+            <li>Maklumat peranti dan log ralat</li>
+            <li>Rekod permainan</li>
+        </ul>
+
+        <h2>2. Cara Maklumat Digunakan</h2>
+        <p>Maklumat yang dikumpulkan digunakan untuk tujuan berikut.</p>
+        <ul>
+            <li>Menyimpan dan memulihkan data permainan</li>
+            <li>Menyediakan kedudukan dalam talian</li>
+            <li>Mengendalikan perkhidmatan permainan</li>
+            <li>Menganalisis ralat dan meningkatkan prestasi</li>
+            <li>Memaparkan iklan dan menjalankan analisis statistik</li>
+        </ul>
+
+        <h2>3. Perkhidmatan yang Digunakan</h2>
+        <p>Permainan mungkin menggunakan perkhidmatan pihak ketiga berikut.</p>
+        <ul>
+            <li>Firebase Authentication</li>
+            <li>Firebase Firestore</li>
+            <li>Firebase Analytics</li>
+            <li>Google AdMob</li>
+        </ul>
+        <p>Dasar privasi bagi setiap perkhidmatan tertakluk pada dasar penyedia perkhidmatan masing-masing.</p>
+
+        <h2>4. Penyimpanan Data</h2>
+        <p>Data permainan mungkin disimpan pada pelayan Firebase, dan pengguna boleh memulihkan data melalui akaun log masuk Google mereka.</p>
+
+        <h2>5. Iklan</h2>
+        <p>Permainan mungkin memaparkan iklan melalui Google AdMob.</p>
+        <p>Maklumat seperti ID pengiklanan mungkin digunakan semasa iklan dipaparkan.</p>
+
+        <h2>6. Penyimpanan dan Pemadaman Data Peribadi</h2>
+        <p>Maklumat akaun dan rekod kemajuan permainan disimpan selagi akaun itu dikekalkan.</p>
+        <p>Rekod penggunaan mata wang dalam permainan disimpan untuk tempoh tertentu bagi menjawab pertanyaan dan memeriksa ralat, kemudian dipadamkan.</p>
+        <p>Rekod berkaitan pembayaran disimpan untuk tempoh yang ditetapkan oleh undang-undang yang berkenaan.</p>
+        <p>Pengguna boleh memadam data setempat dengan menyahpasang Permainan.</p>
+        <p>Jika anda mahu data awan dipadam, anda boleh menghantar permintaan melalui maklumat hubungan di bawah. Walau bagaimanapun, skop yang diperlukan bagi memenuhi kewajipan undang-undang, menyelesaikan pertikaian atau melaksanakan terma akan disimpan sepanjang tempoh tersebut.</p>
+
+        <h2>7. Pengguna Kanak-kanak</h2>
+        <p>Permainan direka agar boleh digunakan oleh semua peringkat umur, namun penggunaan sesetengah perkhidmatan mungkin dihadkan mengikut keperluan undang-undang.</p>
+
+        <h2>8. Perubahan pada Dasar Ini</h2>
+        <p>Dasar Privasi ini mungkin dikemas kini apabila perlu. Jika terdapat perubahan, versi terkini akan disediakan.</p>
+
+        <h2>9. Hubungi Kami</h2>
+        <p>E-mel:</p>
+        <p class="email"><a href="mailto:haromiki@gmail.com">haromiki@gmail.com</a></p>
+    </section>
+
     <p class="home"><a href="index.html">Turtle Pop Games</a></p>
 
     <script>
@@ -410,46 +1415,128 @@
                 en: "Privacy Policy",
                 ja: "プライバシーポリシー",
                 zh: "隐私政策",
-                ar: "سياسة الخصوصية"
+                zhHant: "隱私權政策",
+                ar: "سياسة الخصوصية",
+                ptBr: "Política de Privacidade",
+                es: "Política de privacidad",
+                es419: "Política de privacidad",
+                de: "Datenschutzerklärung",
+                fr: "Politique de confidentialité",
+                it: "Informativa sulla privacy",
+                nl: "Privacybeleid",
+                pl: "Polityka prywatności",
+                ru: "Политика конфиденциальности",
+                tr: "Gizlilik Politikası",
+                fi: "Tietosuojakäytäntö",
+                th: "นโยบายความเป็นส่วนตัว",
+                vi: "Chính sách quyền riêng tư",
+                id: "Kebijakan Privasi",
+                ms: "Dasar Privasi"
             };
-            var nav = document.getElementById("langNav");
+            var HTML_LANG = {
+                ko: "ko",
+                en: "en",
+                ja: "ja",
+                zh: "zh-Hans",
+                zhHant: "zh-Hant",
+                ar: "ar",
+                ptBr: "pt-BR",
+                es: "es",
+                es419: "es-419",
+                de: "de",
+                fr: "fr",
+                it: "it",
+                nl: "nl",
+                pl: "pl",
+                ru: "ru",
+                tr: "tr",
+                fi: "fi",
+                th: "th",
+                vi: "vi",
+                id: "id",
+                ms: "ms"
+            };
+            var RTL = ["ar"];
+            var STORE_KEY = "czeroPrivacyLang";
+
+            var select = document.getElementById("langSelect");
             var title = document.getElementById("pageTitle");
 
+            function isRtl(lang) {
+                for (var i = 0; i < RTL.length; i++) if (RTL[i] === lang) return true;
+                return false;
+            }
+
             function show(lang) {
+                if (!TITLES[lang]) lang = "en";
                 var sections = document.querySelectorAll("section");
                 for (var i = 0; i < sections.length; i++) {
                     sections[i].className = (sections[i].id === lang) ? "active" : "";
                 }
-                var buttons = nav.getElementsByTagName("button");
-                for (var j = 0; j < buttons.length; j++) {
-                    buttons[j].setAttribute("aria-selected",
-                        buttons[j].getAttribute("data-lang") === lang ? "true" : "false");
-                }
-                title.innerHTML = TITLES[lang] || TITLES.ko;
-                document.documentElement.lang = lang;
-                document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+                if (select.value !== lang) select.value = lang;
+                title.innerHTML = TITLES[lang];
+                document.documentElement.lang = HTML_LANG[lang] || lang;
+                document.documentElement.dir = isRtl(lang) ? "rtl" : "ltr";
                 if (history.replaceState) history.replaceState(null, "", "#" + lang);
             }
 
-            nav.onclick = function (e) {
-                var t = e.target;
-                if (t && t.tagName === "BUTTON" && t.getAttribute("data-lang")) {
-                    show(t.getAttribute("data-lang"));
+            /* 브라우저 언어 -> 섹션 id.
+               지역 변형을 먼저 본다(zh-TW를 zh로 떨어뜨리면 대만 사용자에게 간체가 뜬다). */
+            function resolve(tag) {
+                if (!tag) return null;
+                var t = tag.toLowerCase().replace(/_/g, "-");
+                var base = t.split("-")[0];
+                var region = t.split("-")[1] || "";
+                var script = "";
+                var parts = t.split("-");
+                for (var i = 1; i < parts.length; i++) {
+                    if (parts[i].length === 4) script = parts[i];
+                    else if (parts[i].length === 2 || parts[i].length === 3) { if (!region || region.length === 4) region = parts[i]; }
                 }
+
+                if (base === "zh") {
+                    if (script === "hant") return "zhHant";
+                    if (script === "hans") return "zh";
+                    if (region === "tw" || region === "hk" || region === "mo") return "zhHant";
+                    return "zh";
+                }
+                /* 유럽 포르투갈어(pt-PT) 섹션은 따로 없다 -> 가장 가까운 ptBr로 보낸다. */
+                if (base === "pt") return "ptBr";
+                /* 스페인어: es-ES와 지역 미지정만 es, 나머지(중남미 전역)는 es419. */
+                if (base === "es") return (region === "es" || region === "") ? "es" : "es419";
+                if (base === "in") return "id";   /* 인도네시아어의 옛 ISO 코드 */
+                if (base === "iw") return null;   /* 히브리어 옛 코드 - 미지원 */
+                if (TITLES[base]) return base;
+                return null;
+            }
+
+            function detect() {
+                var list = [];
+                if (navigator.languages && navigator.languages.length) {
+                    for (var i = 0; i < navigator.languages.length; i++) list.push(navigator.languages[i]);
+                }
+                if (navigator.language) list.push(navigator.language);
+                if (navigator.userLanguage) list.push(navigator.userLanguage);
+                for (var j = 0; j < list.length; j++) {
+                    var hit = resolve(list[j]);
+                    if (hit) return hit;
+                }
+                return "en";
+            }
+
+            select.onchange = function () {
+                show(select.value);
+                try { localStorage.setItem(STORE_KEY, select.value); } catch (e) { }
             };
 
+            /* 우선순위: URL 해시 > 저장된 선택 > 브라우저 언어 > 영어 */
             var hash = (location.hash || "").replace("#", "");
-            if (TITLES[hash]) {
-                show(hash);
-            } else {
-                var nl = (navigator.language || "ko").toLowerCase();
-                var pick = "ko";
-                if (nl.indexOf("en") === 0) pick = "en";
-                else if (nl.indexOf("ja") === 0) pick = "ja";
-                else if (nl.indexOf("zh") === 0) pick = "zh";
-                else if (nl.indexOf("ar") === 0) pick = "ar";
-                show(pick);
-            }
+            var saved = null;
+            try { saved = localStorage.getItem(STORE_KEY); } catch (e) { }
+
+            if (TITLES[hash]) show(hash);
+            else if (saved && TITLES[saved]) show(saved);
+            else show(detect());
         })();
     </script>
 
