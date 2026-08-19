@@ -283,6 +283,22 @@ p{margin:0}
 .shot:hover{border-color:var(--accent);transform:translateY(-3px)}
 .shot img{width:100%;height:100%;object-fit:cover;aspect-ratio:9/16}
 
+/* ---------- languages ---------- */
+.langgrid{
+  margin-top:clamp(2rem,5vw,3.4rem);
+  display:flex;flex-wrap:wrap;gap:.6rem;
+  padding:0;list-style:none;
+}
+.langgrid li{
+  background:var(--card);border:1px solid var(--line);border-radius:99px;
+  padding:.55rem 1.15rem;
+  color:var(--head);font-weight:600;font-size:.93rem;
+  line-height:2.1;
+  text-align:center;
+  transition:border-color .22s ease,background .22s ease;
+}
+.langgrid li:hover{border-color:var(--accent);background:var(--card-2)}
+
 /* ---------- lightbox ---------- */
 .lightbox{
   position:fixed;inset:0;z-index:200;display:none;
@@ -555,19 +571,51 @@ p{margin:0}
   </div>
 </section>
 
-<!-- 10. cta -->
+<!-- 10. languages -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow" data-ko="언어" data-en="Languages">언어</p>
+    <h2 class="h2" data-ko="21개 언어 지원" data-en="Available in 21 languages">21개 언어 지원</h2>
+    <p class="lead" data-ko="전 세계 어디서든 자기 언어로 플레이할 수 있습니다. 기기 언어를 자동으로 따라가고, 설정에서 직접 고를 수도 있습니다." data-en="Play in your own language, wherever you are. The game follows your device language automatically, and you can pick one yourself in settings.">전 세계 어디서든 자기 언어로 플레이할 수 있습니다. 기기 언어를 자동으로 따라가고, 설정에서 직접 고를 수도 있습니다.</p>
+    <ul class="langgrid">
+      <li>English</li>
+      <li>한국어</li>
+      <li>日本語</li>
+      <li>简体中文</li>
+      <li>العربية</li>
+      <li>Português (Brasil)</li>
+      <li>繁體中文</li>
+      <li>Español (Latinoamérica)</li>
+      <li>Deutsch</li>
+      <li>Français</li>
+      <li>Русский</li>
+      <li>Türkçe</li>
+      <li>ไทย</li>
+      <li>Tiếng Việt</li>
+      <li>Bahasa Indonesia</li>
+      <li>Polski</li>
+      <li>Italiano</li>
+      <li>Nederlands</li>
+      <li>Bahasa Melayu</li>
+      <li>Suomi</li>
+      <li>Español (España)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 11. cta -->
 <section class="section cta">
   <div class="wrap">
     <p class="badge" data-ko="출시 예정" data-en="Coming Soon">출시 예정</p>
     <h2 data-ko="구글 플레이 출시 준비 중입니다" data-en="Coming soon to Google Play">구글 플레이 출시 준비 중입니다</h2>
-    <p class="cta__spec" data-ko="세로 화면 · 한 손 조작 · 5개 언어 지원" data-en="Portrait mode · one-handed · 5 languages">세로 화면 · 한 손 조작 · 5개 언어 지원</p>
+    <p class="cta__spec" data-ko="세로 화면 · 한 손 조작 · 21개 언어 지원" data-en="Portrait mode · one-handed · 21 languages">세로 화면 · 한 손 조작 · 21개 언어 지원</p>
     <div class="cta__rule" aria-hidden="true"></div>
   </div>
 </section>
 
 </main>
 
-<!-- 11. footer -->
+<!-- 12. footer -->
 <footer class="footer">
   <div class="wrap footer__inner">
     <p>&copy; 2026 Turtle Pop. All rights reserved.</p>

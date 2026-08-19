@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turtle Pop Games</title>
-    <meta name="description" content="Turtle Pop is a one-person game studio. CUBE ZERO — coming soon.">
+    <meta name="description" content="Turtle Pop makes games you win by reading, not by luck. CUBE ZERO — coming soon.">
     <meta name="theme-color" content="#0a0a0c">
     <link rel="icon" href="assets/img/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="assets/img/icon-192.png">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Turtle Pop Games">
-    <meta property="og:description" content="Turtle Pop is a one-person game studio. CUBE ZERO — coming soon.">
+    <meta property="og:description" content="Turtle Pop makes games you win by reading, not by luck. CUBE ZERO — coming soon.">
     <meta property="og:image" content="assets/img/hero-poster.jpg">
 
 <style>
@@ -243,6 +243,9 @@ h1,h2,h3{
     color:#dcdce3;
     font-size:clamp(1rem, .95rem + .5vw, 1.3rem);
     line-height:1.6;
+    /* 한국어는 단어 중간에서 끊지 않는다 */
+    word-break:keep-all;
+    overflow-wrap:break-word;
     text-shadow:0 2px 14px rgba(0,0,0,.7);
 }
 
@@ -384,13 +387,73 @@ h1,h2,h3{
    ============================================================ */
 #about{ background:var(--bg-alt); border-block:1px solid var(--border); }
 
-.about-body{ max-width:62ch; }
-
-.about-body p{
-    margin:0 0 1rem;
-    font-size:clamp(1rem, .95rem + .35vw, 1.2rem);
+.about-eyebrow{
+    margin:0 0 .9rem;
+    color:var(--accent);
+    font-size:.8rem;
+    font-weight:700;
+    letter-spacing:.22em;
+    text-transform:uppercase;
 }
-.about-body p:last-child{ margin-bottom:0; }
+
+/* 큰 제목은 기존 .section-title 스케일 그대로, 밑줄 바만 뺀다 */
+#about .section-title::after{ display:none; }
+
+.about-sub{
+    margin:1rem 0 0;
+    max-width:36ch;
+    color:var(--heading);
+    font-size:clamp(1.05rem, .98rem + .55vw, 1.45rem);
+    line-height:1.55;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+}
+
+/* 숫자 타일 — 모바일 2열이 기본 */
+.stat-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:clamp(.75rem, 2vw, 1.25rem);
+    margin-top:clamp(2.25rem, 5vw, 3.25rem);
+}
+
+.stat{
+    min-width:0;
+    padding:clamp(1.1rem, 3vw, 1.75rem) clamp(.75rem, 2.5vw, 1.5rem);
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    text-align:center;
+}
+
+.stat-num{
+    display:block;
+    color:var(--accent);
+    font-size:clamp(2.2rem, 1.5rem + 3vw, 3.6rem);
+    font-weight:800;
+    line-height:1;
+    letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+}
+
+.stat-label{
+    display:block;
+    margin-top:.6rem;
+    color:var(--muted);
+    font-size:clamp(.78rem, .74rem + .2vw, .95rem);
+    letter-spacing:.06em;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+}
+
+.about-close{
+    max-width:56ch;
+    margin:clamp(2.25rem, 5vw, 3.25rem) 0 0;
+    font-size:clamp(1rem, .95rem + .35vw, 1.2rem);
+    line-height:1.7;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+}
 
 /* ============================================================
    5. 푸터
@@ -484,6 +547,8 @@ h1,h2,h3{
 
     .gamecard{ grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); }
     .gamecard-media{ aspect-ratio:auto; height:100%; min-height:300px; }
+
+    .stat-grid{ grid-template-columns:repeat(4, minmax(0,1fr)); }
 }
 
 /* 데스크톱 (1024px~) */
@@ -596,20 +661,38 @@ h1,h2,h3{
     <section class="section" id="about" aria-labelledby="about-title">
         <div class="wrap">
             <div class="section-head">
-                <h2 class="section-title" id="about-title"
-                    data-ko="만드는 사람" data-en="Who We Are">만드는 사람</h2>
+                <p class="about-eyebrow"
+                   data-ko="스튜디오" data-en="Studio">스튜디오</p>
+
+                <h2 class="section-title" id="about-title">TURTLE POP</h2>
+
+                <p class="about-sub"
+                   data-ko="운이 아닌 수읽기로 이기는 게임을 만듭니다"
+                   data-en="We make games you win by reading, not by luck">운이 아닌 수읽기로 이기는 게임을 만듭니다</p>
             </div>
 
-            <div class="about-body">
-                <p data-ko="터틀팝은 1인 개발 스튜디오입니다."
-                   data-en="Turtle Pop is a one-person game studio.">터틀팝은 1인 개발 스튜디오입니다.</p>
-
-                <p data-ko="운에 기대지 않는 게임, 실패의 이유가 분명한 게임을 만듭니다."
-                   data-en="We make games that don't rely on luck — games where failure has a clear reason.">운에 기대지 않는 게임, 실패의 이유가 분명한 게임을 만듭니다.</p>
-
-                <p data-ko="화면을 가득 채우는 화려함보다, 한 수를 고민하게 만드는 설계를 좋아합니다."
-                   data-en="We care more about a board worth thinking over than spectacle that fills the screen.">화면을 가득 채우는 화려함보다, 한 수를 고민하게 만드는 설계를 좋아합니다.</p>
+            <div class="stat-grid">
+                <div class="stat">
+                    <span class="stat-num">280</span>
+                    <span class="stat-label" data-ko="개의 판" data-en="Boards">개의 판</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">10</span>
+                    <span class="stat-label" data-ko="개 존" data-en="Zones">개 존</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">21</span>
+                    <span class="stat-label" data-ko="개 언어" data-en="Languages">개 언어</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-num">6</span>
+                    <span class="stat-label" data-ko="종 무기" data-en="Weapons">종 무기</span>
+                </div>
             </div>
+
+            <p class="about-close"
+               data-ko="판 하나하나를 실제로 클리어 가능한지 검증해 배치했습니다. 풀 수 없는 판은 없습니다."
+               data-en="Every board was verified as actually clearable before it shipped. There are no unsolvable boards.">판 하나하나를 실제로 클리어 가능한지 검증해 배치했습니다. 풀 수 없는 판은 없습니다.</p>
         </div>
     </section>
 
